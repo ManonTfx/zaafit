@@ -1,0 +1,119 @@
+/* GENERAL */
+*,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+button:focus {
+    outline: none;
+}
+
+header {
+    padding: 10px 30px;
+}
+
+.logo {
+    height: 19px;
+    width: 90;
+}
+
+/* CLASS UTILISEES DANS LE FICHIER .JS */
+
+
+/* HEADER */
+.headerhome {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonlogin {
+    background-color: #0054FE;
+    color: #FFF;
+    padding: 5px 20px;
+    border-radius: 13px;
+}
+
+.buttonregister {
+    background-color: transparent;
+    color: #0054FE;
+    border: 1px solid #0054FE;
+    border-radius: 13px;
+    padding: 5px 20px;
+    margin-right: 20px;
+}
+
+
+/* HOME */
+.figurehome {
+    background: linear-gradient(180deg, rgba(124, 197, 244, 1) 0%, rgba(220, 240, 254, 1) 100%);
+
+    height: 60%;
+    width: 40%;
+    border-bottom-left-radius: 90px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.yoga {
+    height: 40em;
+    width: 100%;
+    position: relative;
+    top: 20%;
+}
+
+.homeblock {
+    display: block;
+    width: 40%;
+    position: relative;
+    top: 8em;
+    left: 10em
+}
+
+.surligne {
+    background: linear-gradient(180deg, rgba(167, 216, 249, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(167, 216, 249, 1) 100%);
+}
+
+.p_home {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.buttonhome {
+    width: 150px;
+    background-color: #0054FE;
+    color: #FFF;
+    padding: 5px 20px;
+    border-radius: 13px;
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #E8F2F9;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.footerlink {
+    padding-left: 5px;
+}
+
+
+.register {
+    padding-right: 20px;
+}

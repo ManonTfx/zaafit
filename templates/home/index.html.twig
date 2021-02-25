@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Accueil {% endblock %}
+{% block title %} Zaafit Accueil {% endblock %}
 
+{% block header %}
+    <header class= "headerhome">
+        <a  href="#"><img class="logo" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo zafit"></a>
+        <div>
+            <button type="button" class="buttonregister">S'inscrire</button>
+            <button type="button" class="buttonlogin">Connexion</button>
+        </div>
+    </header>
+{% endblock %}
 {% block content %}
-
-<img src="{{ asset('image/zafit.png') }}" alt="zaafit-accueil" class="img-fluid img-accueil">
-
-<div class="container mt-5 mb-5 ">
-
-</div>
+    <section class="homeblock">
+        <h1>Suis ton <em class="surligne">évolution</em> jour aprés jour</h1>
+        <p class= "p_home">Reste motivé en parcourant et en commantant les articles de notre blog axé sur la santé, la dietetique et le sport ! </p>
+        <div>
+            <button type="button" class="buttonhome">En savoir plus</button>
+            <button type="button" class="buttonhome">Blog</button>
+        </div>
+    </section>
+    <div class="figurehome">
+        <img class="yoga" src="{{ asset('img/yoga.svg') }}" alt="yoga">
+    </div>
 
 {% endblock %}
