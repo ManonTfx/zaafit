@@ -1,0 +1,25 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Modification du profil{% endblock %}
+
+{% block content %}
+
+
+<div class="bg-light container">
+    <h1 class="h2">Modification du profil de {{ app.user.prenom }} {{ app.user.nom }}</h1>
+    {{ form_start(form) }}
+      <div>Nom : </div>
+            {{ form_row(form.nom) }}
+            <div>Prénom : </div>
+            {{ form_row(form.prenom) }}
+            <br>
+            <div class="d-flex justify-content-around">
+            <div>Photo de profil: <img class="profilpicture" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil"></div>
+            {{ form_row(form.imageFile) }}
+            </div>
+            <button type="submit" class="btn btn-primary mb-2 mt-1">Confirmer les modications</button>
+    {{ form_end(form) }}
+</div>
+
+
+{% endblock %}
