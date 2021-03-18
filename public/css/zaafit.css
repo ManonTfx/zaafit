@@ -15,15 +15,149 @@ header {
     padding: 10px 30px;
 }
 
+a:link {
+    text-decoration: none !important;
+}
+
+.nav-link {
+    color: #74798C !important;
+}
+
 .logo {
     height: 19px;
     width: 90;
 }
 
+.container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row {
+    --bs-gutter-x: -0.5rem !important;
+}
+
 /* CLASS UTILISEES DANS LE FICHIER .JS */
 
+/* HEADER DASHBOARD USERS*/
+.menuburgerbtn {
+    background-color: #F5F6FA;
+    padding-left: 100px;
+}
 
-/* HEADER */
+.headerusers>div>div>p {
+    padding-left: 15px;
+    font-size: 15px;
+    color: #74798C;
+    font-weight: bold;
+}
+
+.headerusers {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F6FA;
+}
+
+.logousers {
+    padding-left: 35px;
+}
+
+
+.profiluserbtn {
+    background-color: #F5F6FA;
+    padding-left: 15px;
+    padding-left: 15px;
+    font-size: 15px;
+    color: #74798C;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.menuderoulant {
+    margin-top: 19px !important;
+    border: none !important;
+}
+
+.menuderoulant>a {
+    font-size: 15px;
+    color: #74798C;
+}
+
+.profilpicture {
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+}
+
+/*DASHBOARD NAV MENU BURGER USERS*/
+.menuburger {
+    margin-top: 40px;
+    margin-left: 2%;
+}
+
+.navmenuburger {
+    box-shadow: 4px 0 4px 0 rgba(43, 45, 55, 0.01);
+    /* display: none; */
+}
+
+
+.btnblog {
+    width: auto;
+    padding: 5px 15px;
+    background-color: #0054FE;
+    color: #FFF;
+    margin-left: 20%;
+    margin-top: 45px;
+}
+
+.btnblog:hover {
+    color: #0054FE;
+    background-color: #FFF;
+    border-color: #0054FE;
+}
+
+.icons {
+    width: 14px;
+    height: 16px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+
+/* DASHBOARD */
+
+.homedashboard {
+    background-color: #F5F6FA;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    margin-bottom: 70px;
+}
+
+.homestatsup {
+    width: 20%;
+    height: 100px;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.homestats {
+    background-color: red;
+    width: 95%;
+    height: 350px;
+    margin-left: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* poids */
+
+.formpoids>p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* HEADER HOME*/
 .headerhome {
     display: flex;
     justify-content: space-between;
@@ -31,9 +165,12 @@ header {
 
 .buttonlogin {
     background-color: #0054FE;
-    color: #FFF;
     padding: 5px 20px;
     border-radius: 13px;
+}
+
+.buttonlogin>a {
+    color: #FFF;
 }
 
 .buttonregister {
@@ -44,7 +181,6 @@ header {
     padding: 5px 20px;
     margin-right: 20px;
 }
-
 
 /* HOME */
 .figurehome {
@@ -98,7 +234,7 @@ h1 {
 
 /* FOOTER */
 footer {
-    background-color: #E8F2F9;
+    background-color: #F5F6FA;
     position: fixed;
     bottom: 0;
     width: 100%;
