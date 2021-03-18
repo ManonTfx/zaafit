@@ -1,0 +1,17 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Ajout poids{{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block content %}
+<div class="container formpoids">
+   {{ form_start(form)}}
+    <p>Votre poids</p>
+    {{ form_row(form.user_poids) }}
+  
+    <p>Selectionnez la date</p>
+    {{ form_row(form.date_jour) }}
+    <button type="submit" class="btn-primary btn mt-3">Valider</button>
+      {{ form_end(form)}}
+
+</div>
+{% endblock %}
