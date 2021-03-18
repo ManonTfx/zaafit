@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="71px" height="144px" viewBox="0 0 71 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ZAAFIT-logo">
+            <g id="Group">
+                <polygon id="Path-Copy-3" fill="#FCCD55" fill-rule="nonzero" points="46.2876307 0.35750643 35.0556544 38.5459523 28.7967333 8.94628217 25.9947335 0.193694523 2 0 15.7961252 48.6811942 55.2895463 49 71 0.55699398"></polygon>
+                <polygon id="Path-Copy-4" fill="#35D8E6" fill-rule="nonzero" transform="translate(34.500000, 119.000000) rotate(180.000000) translate(-34.500000, -119.000000) " points="44.2876307 94.3648025 33.0556544 133.332604 26.7967333 103.128859 23.9947335 94.1976475 0 94 13.7961252 143.674688 53.2895463 144 69 94.5683612"></polygon>
+                <rect id="Rectangle" fill="#FCCD55" x="26" y="51" width="19" height="42"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
