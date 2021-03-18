@@ -1,1 +1,72 @@
 {% extends 'users.html.twig' %}
+
+{% block title %}Home - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <nav class="col-2 navmenuburger">
+        <a href="{{ path('poids')}}" class="btnblog btn">+&nbsp;&nbsp;&nbsp;Ajouter poids</a>
+        <div class=" menuburger">
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="">
+                Home
+                </a>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="">
+                Repas
+                </a>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="">
+                Exercices
+                </a>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconsuivi.svg') }}" alt="">
+                Suivi
+                </a>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="">
+                Blog
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="col-10 mt-4 homedashboard">
+        <div class="row d-flex justify-content-around">
+            <div class="homestatsup">
+ 
+            </div>
+            <div class="homestatsup">
+  
+            </div>
+            <div class="homestatsup">
+    
+            </div>
+            <div class="homestatsup">
+    
+            </div>
+        </div>
+        <div class="row">
+            <div class="homestats">
+            </div>
+        </div>
+        <div class="row">
+            <div class="homestats">
+            </div>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}
