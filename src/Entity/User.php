@@ -2,20 +2,23 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Repository\UserRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @Vich\Uploadable
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
-
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -48,6 +51,60 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updateAt;
+
+    /**
+     * @Vich\UploadableField(mapping="user_profil_picture", fileNameProperty="photo")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Poids::class, mappedBy="user")
+     */
+    private $poids;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Poids::class, mappedBy="user")
+     */
+    private $poids_user;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $taille_user;
+
+    /**
+     * @ORM\Column(type="decimal", precision=5, scale=1)
+     */
+    private $objectif_poids;
+
+    /**
+     * @ORM\Column(type="decimal", precision=5, scale=1)
+     */
+    private $poids_depart;
+
+    /**
+     * @ORM\Column(type="string", length=1)
+     */
+    private $sexe;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+        $this->updateAt = new \DateTime();
+        $this->poids = new ArrayCollection();
+        $this->poids_user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -151,6 +208,183 @@ class User implements UserInterface
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(?\DateTimeInterface $updateAt): self
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imageFile
+     *
+     * @return  File
+     * 
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @param  File  $imageFile
+     *
+     * @return  self
+     */
+    public function setImageFile(File $imageFile)
+    {
+        $this->imageFile = $imageFile;
+
+        return $this;
+    }
+
+    public function serialize()
+    {
+
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+
+        list(
+            $this->id,
+            $this->email,
+            $this->password,
+        ) = unserialize($serialized);
+    }
+
+    /**
+     * @return Collection|Poids[]
+     */
+    public function getPoids(): Collection
+    {
+        return $this->poids;
+    }
+
+    public function addPoid(Poids $poid): self
+    {
+        if (!$this->poids->contains($poid)) {
+            $this->poids[] = $poid;
+            $poid->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePoid(Poids $poid): self
+    {
+        if ($this->poids->removeElement($poid)) {
+            // set the owning side to null (unless already changed)
+            if ($poid->getUser() === $this) {
+                $poid->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Poids[]
+     */
+    public function getPoidsUser(): Collection
+    {
+        return $this->poids_user;
+    }
+
+    public function addPoidsUser(Poids $poidsUser): self
+    {
+        if (!$this->poids_user->contains($poidsUser)) {
+            $this->poids_user[] = $poidsUser;
+            $poidsUser->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePoidsUser(Poids $poidsUser): self
+    {
+        if ($this->poids_user->removeElement($poidsUser)) {
+            // set the owning side to null (unless already changed)
+            if ($poidsUser->getUser() === $this) {
+                $poidsUser->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTailleUser(): ?int
+    {
+        return $this->taille_user;
+    }
+
+    public function setTailleUser(int $taille_user): self
+    {
+        $this->taille_user = $taille_user;
+
+        return $this;
+    }
+
+    public function getObjectifPoids(): ?string
+    {
+        return $this->objectif_poids;
+    }
+
+    public function setObjectifPoids(string $objectif_poids): self
+    {
+        $this->objectif_poids = $objectif_poids;
+
+        return $this;
+    }
+
+    public function getPoidsDepart(): ?string
+    {
+        return $this->poids_depart;
+    }
+
+    public function setPoidsDepart(string $poids_depart): self
+    {
+        $this->poids_depart = $poids_depart;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): self
+    {
+        $this->sexe = $sexe;
 
         return $this;
     }
