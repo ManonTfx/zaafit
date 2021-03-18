@@ -17,6 +17,8 @@
             <div>Photo de profil: <img class="profilpicture" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil"></div>
             {{ form_row(form.imageFile) }}
             </div>
+            <div>Objectif : </div>
+            {{ form_row(form.objectif_poids) }}
             <button type="submit" class="btn btn-primary mb-2 mt-1">Confirmer les modications</button>
     {{ form_end(form) }}
 </div>
