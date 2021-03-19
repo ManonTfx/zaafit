@@ -19,12 +19,14 @@ class UsersController extends AbstractController
      */
     public function index(): Response
     {
-        $dateJour = strftime('%A %d %B');
+        $dateJour = date('l j F Y, H:i');
+        $heure = strftime('%H:%M:%S');
         // $user = $this->getDoctrine()->getRepository(User::class)->find($id);
 
         return $this->render('users/index.html.twig', [
             'controller_name' => 'UsersController',
             'dateJour' => $dateJour,
+            'heure' => $heure,
             // 'user' => $user,
         ]);
     }

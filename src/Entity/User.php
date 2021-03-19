@@ -88,10 +88,6 @@ class User implements UserInterface, \Serializable
      */
     private $objectif_poids;
 
-    /**
-     * @ORM\Column(type="decimal", precision=5, scale=1)
-     */
-    private $poids_depart;
 
     /**
      * @ORM\Column(type="string", length=1)
@@ -365,17 +361,6 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getPoidsDepart(): ?string
-    {
-        return $this->poids_depart;
-    }
-
-    public function setPoidsDepart(string $poids_depart): self
-    {
-        $this->poids_depart = $poids_depart;
-
-        return $this;
-    }
 
     public function getSexe(): ?string
     {

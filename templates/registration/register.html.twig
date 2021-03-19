@@ -20,13 +20,10 @@
         {{ form_row(registrationForm.taille_user) }}
     </div>
     <div class = "d-flex justify-content-between">
-        <p>Indiquez votre poids actuel</p>
-        {{ form_row(registrationForm.poids_depart) }}
-    </div>
-    <div class = "d-flex justify-content-between">
-        <p>Indiquez votre poids souhaité</p>
+        <p>Indiquez le poids que vous souhaiteriez atteindre</p>
         {{ form_row(registrationForm.objectif_poids) }}
     </div>
+    <p> Remarque : N'oubliez pas d'ajouter votre poids actuel à la bonne date une fois connecté</p>
 
     {{ form_row(registrationForm.sexe) }}
     {{ form_row(registrationForm.email) }}

@@ -51,11 +51,6 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => '00.0',
                 )
             ))
-            ->add('poids_depart', NumberType::class, array(
-                'attr' => array(
-                    'placeholder' => '00.0',
-                )
-            ))
             ->add('email', TextType::class, array(
                 'attr' => array(
                     'placeholder' => 'Adresse mail',

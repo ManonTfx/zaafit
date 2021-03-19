@@ -45,8 +45,9 @@
     </nav>
     <div class="col-10 mt-4 homedashboard">
         <div class="row d-flex justify-content-around">
-            <div class="homestatsup">
-                {{ dateJour |format_datetime('full', locale='fr')}}
+            <div class="homestatsupjourdate">
+                <p class = "datejour"> {{ dateJour|format_datetime('full', 'none' , locale='fr') |capitalize}}</p>
+                <p class = "heure"> {{ heure |format_datetime('none', 'short', locale='fr')}}</p>
             </div>
             <div class="homestatsup">
   
