@@ -1,4 +1,7 @@
 {
+    "cmen/google-charts-bundle": {
+        "version": "4.0.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -87,6 +90,9 @@
     "jms/metadata": {
         "version": "2.4.0"
     },
+    "jms/serializer": {
+        "version": "3.12.0"
+    },
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
@@ -98,6 +104,9 @@
     },
     "nikic/php-parser": {
         "version": "v4.10.4"
+    },
+    "phpstan/phpdoc-parser": {
+        "version": "0.4.14"
     },
     "psr/cache": {
         "version": "1.0.1"

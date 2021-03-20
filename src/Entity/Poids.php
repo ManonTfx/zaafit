@@ -20,7 +20,7 @@ class Poids
     /**
      * @ORM\Column(type="decimal", precision=5, scale=1)
      */
-    private $user_poids;
+    public $user_poids;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="poids_user")
@@ -30,7 +30,7 @@ class Poids
     /**
      * @ORM\Column(type="date")
      */
-    private $date_jour;
+    public $date_jour;
 
     public function getId(): ?int
     {
