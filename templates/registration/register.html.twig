@@ -8,30 +8,32 @@
 
 <div class="register bg-light">
     <h1>Inscription</h1>
-    {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.nom) }}
-    {{ form_row(registrationForm.prenom) }}
+
+    {{ form_row(registrationForm.user.nom) }}
+    {{ form_row(registrationForm.user.prenom) }}
     <div class = "d-flex justify-content-between">
         <p>Séléctionnez une photo de profil</p>
-        {{ form_row(registrationForm.imageFile) }}
+        {{ form_row(registrationForm.user.imageFile) }}
     </div>
     <div class = "d-flex justify-content-between">
-        <p>Indiquez votre taille en cm</p>
-        {{ form_row(registrationForm.taille_user) }}
+        <p>Votre taille en cm</p>
+        {{ form_row(registrationForm.user.taille_user) }}
     </div>
     <div class = "d-flex justify-content-between">
-        <p>Indiquez le poids que vous souhaiteriez atteindre</p>
-        {{ form_row(registrationForm.objectif_poids) }}
+        <p>Votre poids actuel</p>
+        {{ form_row(registrationForm.poids.user_poids) }}
     </div>
-    <p> Remarque : N'oubliez pas d'ajouter votre poids actuel à la bonne date une fois connecté</p>
+    <div class = "d-flex justify-content-between">
+        <p>Votre objectif de poids</p>
+        {{ form_row(registrationForm.user.objectif_poids) }}
+    </div>
 
-    {{ form_row(registrationForm.sexe) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
-    {{ form_row(registrationForm.agreeTerms) }}
+    {{ form_row(registrationForm.user.sexe) }}
+    {{ form_row(registrationForm.user.email) }}
+    {{ form_row(registrationForm.plainPassword) }}
+    {{ form_row(registrationForm.user.agreeTerms) }}
 
     <button type="submit" class="btn btn-primary mb-2 mt-1">S'inscrire</button>
-    {{ form_end(registrationForm) }}
 </div>
 
 </div>

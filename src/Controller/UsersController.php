@@ -37,13 +37,15 @@ class UsersController extends AbstractController
         $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
         $userHistoricalWeights = $serializer->serialize($userDataWeight, 'json');
         $userHistoricalWeights = json_decode($userHistoricalWeights, true);
+        // $toto = array_reverse($userHistoricalWeights);
 
         // Add header for graph
-        $dataForGraph = [['Jour', 'Poids']];
+        $dataForGraph = [[' ', 'Poids']];
         // Add historical weight for the user
         foreach ($userHistoricalWeights as $userHistoricalWeight) {
             // Get only YYYY-MM-DD
             $formatedDate = explode('T', $userHistoricalWeight['date_jour'])[0];
+
             // Transform weight from string to float
             $userWeight = floatval($userHistoricalWeight['user_poids']);
             array_push($dataForGraph, [$formatedDate, $userWeight]);
@@ -52,10 +54,10 @@ class UsersController extends AbstractController
         $chart->getData()->setArrayToDataTable($dataForGraph);
 
         $chart->getOptions()->getChart()
-            ->setTitle('Average Temperatures and Daylight in Iceland Throughout the Year');
+            ->setTitle('Evolution poids');
         $chart->getOptions()
             ->setHeight(400)
-            ->setWidth(900)
+            ->setWidth(1130)
             ->setSeries([['axis' => 'Temps'], ['axis' => 'Daylight']])
             ->setAxes(['y' => ['Temps' => ['label' => 'Poids (Kg)']]]);
 
@@ -70,8 +72,6 @@ class UsersController extends AbstractController
             'dateJour' => $dateJour,
             'heure' => $heure,
             'chart' => $chart,
-            'userpoids' => $userHistoricalWeights,
-            // 'user' => $user,
         ]);
     }
 

@@ -29,12 +29,12 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $nom;
+    public $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $prenom;
+    public $prenom;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)

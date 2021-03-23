@@ -15,11 +15,13 @@ class PoidsFormType extends AbstractType
     {
         $builder
             ->add('user_poids', NumberType::class, array(
+                'label' => 'poids.form.register.user_poids.label',
                 'attr' => array(
                     'placeholder' => '00.0',
                 )
             ))
             ->add('date_jour', DateType::class, [
+                'label' => 'poids.form.register.date_jour.label',
                 'widget' => 'single_text',
             ]);
     }
