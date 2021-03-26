@@ -8,6 +8,7 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
             <link rel="shortcut icon" href="{{ asset('img/logoicon.svg') }}">
             <link rel="stylesheet" href="{{ asset('css/zaafit.css') }} ">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
         {% endblock %}
@@ -19,7 +20,7 @@
     {% block header %}
 
 
-          <header class="headerusers">
+          <header class="headerusers mb-3">
             <div class="d-flex align-items-center">
                 <a href="{{path('users')}}"><img class="logo logousers" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo-zaafit"></a>
                 <div class="d-flex align-items-center">
@@ -45,12 +46,81 @@
             </div>
         {% endfor %}
     {% endblock %}
+<div class="grid-container">
+    <nav class="navmenuburger">
+        <a href="{{ path('poids')}}" class="btnWeight btn">+&nbsp;&nbsp;Ajouter poids</a>
+        <div class=" menuburger">
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'users' %}
+                <a href="{{ path('users') }}" class="nav-link">
+                        <img class="icons"src="{{ asset('img/iconhomeblue.svg') }}" alt="">
+                Home
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('users')}}">
+                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="">
+                Home
+                </a>
+                {% endif %}
+            </div>
 
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'repasusers' %}
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconrepasblue.svg') }}" alt="">
+                Repas
+                </a>
+                {% else %}
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="">
+                Repas
+                </a>
+                {% endif %}
+
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'exercicesusers' %}
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconactivitesblue.svg') }}" alt="">
+                Exercices
+                </a>
+                {% else %}
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="">
+                Exercices
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'suiviusers' %}
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconsuiviblue.svg') }}" alt="">
+                Suivi
+                </a>
+                {% else %}
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/iconsuivi.svg') }}" alt="">
+                Suivi
+                </a>
+                {% endif %}
+
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="#">
+                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="">
+                Blog
+                </a>
+            </div>
+        </div>
+    </nav>
 
 {% block content %}
 {% endblock %}
 
-
+</div>
     
     <footer>
             <div> © 2020 Copyright:
@@ -66,11 +136,12 @@
 {% endblock %}
 
         {% block javascripts %}
-        <script src="{{ asset('js/zaafit.js') }}"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+            <script src="{{ asset('js/zaafit.js') }}"></script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>            
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>      
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
         {% endblock %}
        
 

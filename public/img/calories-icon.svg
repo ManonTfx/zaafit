@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>calories-icon</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fitness-pal" transform="translate(-601.000000, -140.000000)" fill="#0054FE">
+            <g id="kpis" transform="translate(569.000000, 108.000000)">
+                <g id="calories">
+                    <g id="calories-icon" transform="translate(32.000000, 32.000000)">
+                        <g id="Group-2">
+                            <rect id="background" opacity="0.066125" x="0" y="0" width="60" height="60" rx="6"></rect>
+                            <g id="energy" transform="translate(21.000000, 21.000000)" fill-rule="nonzero">
+                                <path d="M10.905,7.86625 C10.905,7.86625 11.8375,2.38125 8.0325,0 C7.91784865,1.90607261 6.99682922,3.67310249 5.5,4.85875 C3.875,6.2875 0.81875,9.5 0.85125,12.925 C0.827434659,15.9115803 2.49914441,18.6533587 5.165,20 C5.25931992,18.6645271 5.88737874,17.4232775 6.9075,16.55625 C7.77188217,15.8914968 8.33305108,14.9074245 8.465,13.825 C10.7406771,15.0347741 12.2124782,17.3521486 12.34,19.92625 L12.34,19.9425 C14.8551795,18.7903824 16.5109307,16.3241438 16.625,13.56 C16.895,10.3425 15.1325,5.9675 13.56875,4.5375 C12.9783688,5.85556055 12.0615545,7.00125566 10.905,7.86625 Z" id="Path"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

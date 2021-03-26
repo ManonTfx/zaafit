@@ -8,7 +8,7 @@
 
 <div class="register bg-light">
     <h1>Inscription</h1>
-
+    {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.user.nom) }}
     {{ form_row(registrationForm.user.prenom) }}
     <div class = "d-flex justify-content-between">
@@ -21,7 +21,7 @@
     </div>
     <div class = "d-flex justify-content-between">
         <p>Votre poids actuel</p>
-        {{ form_row(registrationForm.poids.user_poids) }}
+        {{ form_row(registrationForm.user_poids) }}
     </div>
     <div class = "d-flex justify-content-between">
         <p>Votre objectif de poids</p>
@@ -32,8 +32,9 @@
     {{ form_row(registrationForm.user.email) }}
     {{ form_row(registrationForm.plainPassword) }}
     {{ form_row(registrationForm.user.agreeTerms) }}
-
+  
     <button type="submit" class="btn btn-primary mb-2 mt-1">S'inscrire</button>
+    {{ form_end(registrationForm) }}
 </div>
 
 </div>

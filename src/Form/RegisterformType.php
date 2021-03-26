@@ -5,8 +5,10 @@ namespace UserBundle\Form;
 use App\Form\PoidsFormType;
 use App\Form\RegistrationFormType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
@@ -20,9 +22,7 @@ class RegisterForm extends AbstractType
             ->add('user', RegistrationFormType::class, [
                 'label' => false
             ])
-            ->add('poids', PoidsFormType::class, [
-                'label' => false
-            ])
+
             // Ceci est un exemple de comment enlever des fields à profile
             // ->get('profile')
             // ->remove('firstName')
@@ -54,7 +54,13 @@ class RegisterForm extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ]);
+            ])
+            ->add('user_poids', NumberType::class, array(
+                'label' => 'poids.form.register.user_poids.label',
+                'attr' => array(
+                    'placeholder' => '00.0',
+                )
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="17px" viewBox="0 0 14 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fitness-pal" transform="translate(-52.000000, -197.000000)" fill="#0054FE" fill-rule="nonzero">
+            <g id="sidenav">
+                <g id="links" transform="translate(51.000000, 179.000000)">
+                    <g id="home" transform="translate(1.000000, 0.000000)">
+                        <g id="home-minimal" transform="translate(0.000000, 18.000000)">
+                            <path d="M12.9797192,16.1142857 C13.5787832,16.1142857 13.9781591,15.7149097 13.9781591,15.1158458 L13.9781591,6.12988634 C13.9781591,5.83035436 13.8783151,5.53082238 13.5787832,5.33113439 L7.58814353,0.3389347 C7.18876755,0.039402719 6.68954758,0.039402719 6.29017161,0.3389347 L0.299531981,5.33113439 C0.0998439938,5.53082238 0,5.83035436 0,6.12988634 L0,15.1158458 C0,15.7149097 0.399375975,16.1142857 0.998439938,16.1142857 L4.99219969,16.1142857 L4.99219969,11.122086 L8.98595944,11.122086 L8.98595944,16.1142857 L12.9797192,16.1142857 Z" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

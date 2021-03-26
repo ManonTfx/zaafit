@@ -25,7 +25,7 @@ class RegistrationController extends AbstractController
         $user = new User();
         $poids = new Poids();
 
-        $form = $this->createForm(Registerform::class, ['user' => $user, 'poids' => $poids]);
+        $form = $this->createForm(RegisterForm::class, ['user' => $user, $poids]);
         $form->handleRequest($request);
 
 
@@ -40,6 +40,9 @@ class RegistrationController extends AbstractController
             );
             $user->addPoid($poids);
             $poids->setDateJour(new \DateTime('now'));
+            $poids->setUserPoids(
+                $form->get('user_poids')->getData()
+            );
 
 
             $entityManager = $this->getDoctrine()->getManager();

@@ -1,0 +1,105 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Home - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block content %}
+    <div class="homestatsupleft homestatsup">
+        <p class = "datejour"> {{ dateJour|format_datetime('full', 'none' , locale='fr') |capitalize}}</p>
+        <p class = "heure"> {{ heure |format_datetime('none', 'short', locale='fr')}}</p>
+    </div>
+    <div class="homestatsupmiddle homestatsup d-flex  align-items-center justify-content-around">
+        <img class="iconsKg"src="{{ asset('img/imc.svg') }}" alt="">               
+        <div class="imcdiv">
+        <p>IMC ACTUEL</p>
+        <p class = "imc"> {{ imc|round(1, 'floor') }} - {{ resultimc }}</p>
+        </div>
+    </div>
+    <div class="homestatsupmiddleright d-flex  align-items-center justify-content-around homestatsup">
+        <img class="iconsKg"src="{{ asset('img/calories-icon.svg') }}" alt="">
+        <div class="imcdiv">
+        <p>Calories brûlés</p>
+        <p class = "imc"> 1230 </p>
+        </div>             
+
+    </div>
+    <div class="homestatsupright homestatsup">
+        <canvas height ="100" id="myChart"></canvas>
+    </div>
+    <section class="homestats">
+        <div id="div_chart" class="weightChart"> 
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(chart, 'div_chart') }}
+            </script>
+        </div>
+    </section>
+    <div class="homestatsbottom">
+    </div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script>
+    var value = {{ percent }};
+var data = {
+  datasets: [
+    {
+      data: [value, 100-value],
+      backgroundColor: [
+        "#FD5181",
+        "#E4E8EB"
+      ],
+      hoverBackgroundColor: [
+        "#FF6384",
+        "#AAAAAA"
+      ],
+      hoverBorderColor: [
+        "#FF6384",
+        "#ffffff"
+      ]
+    }]
+};
+
+var myChart = new Chart(document.getElementById('myChart'), {
+  type: 'doughnut',
+  data: data,
+  options: {
+  	responsive: true,
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+    tooltips: {
+    	filter: function(item, data) {
+        var label = data.labels[item.index];
+        if (label) return item;
+      }
+    }
+  }
+});
+
+textCenter(value);
+
+function textCenter(val) {
+  Chart.pluginService.register({
+    beforeDraw: function(chart) {
+      var width = chart.chart.width,
+          height = chart.chart.height,
+          ctx = chart.chart.ctx;
+
+      ctx.restore();
+      var fontSize = (height / 114).toFixed(2);
+      ctx.font = fontSize + "em sans-serif";
+      ctx.textBaseline = "middle";
+
+      var text = val+"%",
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = height / 2;
+
+      ctx.fillText(text, textX, textY);
+      ctx.save();
+    }
+  });
+}
+</script>
+{% endblock %}

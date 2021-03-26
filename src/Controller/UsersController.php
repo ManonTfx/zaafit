@@ -6,6 +6,8 @@ use App\Entity\Poids;
 use App\Entity\User;
 use App\Form\EditProfileType;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\Material\LineChart;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+use CMEN\GoogleChartsBundle\GoogleCharts\Options\PieChart\PieSlice;
 use DateTime;
 use PhpParser\Node\Scalar\MagicConst\File;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,8 +29,8 @@ class UsersController extends AbstractController
     public function index(): Response
     {
 
-        // courbe de poids
-        $chart = new \CMEN\GoogleChartsBundle\GoogleCharts\Charts\Material\LineChart();
+        // COURBE DE POIDS
+        $chart = new LineChart();
 
         // Get user historical data
         $userDataWeight = $this->getUser()->getPoidsUser();
@@ -37,10 +39,15 @@ class UsersController extends AbstractController
         $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
         $userHistoricalWeights = $serializer->serialize($userDataWeight, 'json');
         $userHistoricalWeights = json_decode($userHistoricalWeights, true);
-        // $toto = array_reverse($userHistoricalWeights);
+
+
+        // Get Objectif User
+        $objectifUser = $this->getUser()->getObjectifPoids();
+        $objectif = round($objectifUser);
+
 
         // Add header for graph
-        $dataForGraph = [[' ', 'Poids']];
+        $dataForGraph = [[' ', 'Poids', 'Objectif']];
         // Add historical weight for the user
         foreach ($userHistoricalWeights as $userHistoricalWeight) {
             // Get only YYYY-MM-DD
@@ -48,18 +55,52 @@ class UsersController extends AbstractController
 
             // Transform weight from string to float
             $userWeight = floatval($userHistoricalWeight['user_poids']);
-            array_push($dataForGraph, [$formatedDate, $userWeight]);
+            array_push($dataForGraph, [$formatedDate, $userWeight, $objectif]);
         }
+
 
         $chart->getData()->setArrayToDataTable($dataForGraph);
 
-        $chart->getOptions()->getChart()
-            ->setTitle('Evolution poids');
+        $chart->getOptions()->setTitle('Evolution Poids');
+        $chart->getOptions()->setCurveType('function');
+        $chart->getOptions()->setLineWidth(3);
+        // $chart->getOptions()->getLegend()->setPosition('none');
+
         $chart->getOptions()
-            ->setHeight(400)
-            ->setWidth(1130)
-            ->setSeries([['axis' => 'Temps'], ['axis' => 'Daylight']])
-            ->setAxes(['y' => ['Temps' => ['label' => 'Poids (Kg)']]]);
+            ->setFontName('Lato')
+            // ->setHeight(400)
+            // ->setWidth(1130)
+            ->setSeries(['axis' => 'Temps'])
+            ->setAxes(['y' => ['label' => 'Poids (Kg)']]);
+
+        //PERCENT OBJECTIF / WEIGHT
+        $poidsDepart = $userHistoricalWeights[0]['user_poids'];
+        $percent = round(100 * ($poidsDepart - $userWeight) / ($poidsDepart - $objectif));
+
+        //Calcul IMC
+        $userWeight = $userHistoricalWeight['user_poids'];
+        $userHeight = $this->getUser()->getTailleUser();
+
+        $imc = ($userWeight * 10000) / ($userHeight * $userHeight);
+
+        if ($imc < 16) {
+            $resultimc = "Maigreur extrême";
+        } else if ($imc < 18.5) {
+            $resultimc = "Maigreur";
+        } else if ($imc < 24.9) {
+            $resultimc = "Poid normal";
+        } else if ($imc < 29.9) {
+            $resultimc = "Surpoids";
+        } else if ($imc < 34.9) {
+            $resultimc = "Obésité légère";
+        } else if ($imc < 39.9) {
+            $resultimc = "Obésité";
+        } else if ($imc > 40) {
+            $resultimc = "Obésité morbide";
+        }
+
+
+
 
 
         // Affiche la date et l'heure du jour sur le dashboard
@@ -67,11 +108,14 @@ class UsersController extends AbstractController
         $heure = strftime('%H:%M:%S');
         // $user = $this->getDoctrine()->getRepository(User::class)->find($id);
 
-        return $this->render('users/index.html.twig', [
+        return $this->render('users/homeusers.html.twig', [
             'controller_name' => 'UsersController',
             'dateJour' => $dateJour,
             'heure' => $heure,
             'chart' => $chart,
+            'imc' => $imc,
+            'resultimc' => $resultimc,
+            'percent' => $percent,
         ]);
     }
 
