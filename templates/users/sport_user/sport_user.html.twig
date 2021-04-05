@@ -1,0 +1,119 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Exercices - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block content %}
+<div class="grid-container-repas">
+    <nav class="navmenuburgerrepas">
+        <a href="{{ path('poids')}}" class="btnWeight btn">+&nbsp;&nbsp;Ajouter poids</a>
+        <div class=" menuburger">
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'users' %}
+                <a href="{{ path('users') }}" class="nav-link">
+                        <img class="icons"src="{{ asset('img/iconhomeblue.svg') }}" alt="">
+                Home
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('users')}}">
+                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="">
+                Home
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'food_user' %}
+                <a class="nav-link" href="{{ path('food_user')}}">
+                    <img class="icons"src="{{ asset('img/iconrepasblue.svg') }}" alt="">
+                Repas
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('food_user')}}">
+                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="">
+                Repas
+                </a>
+                {% endif %}
+
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'sport' %}
+                <a class="nav-link" href="{{ path('sport')}}">
+                    <img class="icons"src="{{ asset('img/iconactivitesblue.svg') }}" alt="">
+                Exercices
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('sport')}}">
+                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="">
+                Exercices
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="{{ path('blog')}}">
+                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="">
+                Blog
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="formfoodandsport mt-3">
+        <h2 class="text-center">Ajouter une activitée physique:</h2>
+            {{ form_start(form)}}
+                <p>Selectionnez la date</p>
+            {{ form_row(form.date_jour_sport) }}
+  
+                <p>Type de sport</p>
+            {{ form_row(form.type_de_sport) }}
+                <p>Temps (en minutes)</p>
+            {{ form_row(form.duree_minutes) }}
+
+                <button type="submit" class="btn-primary btn mt-3">Envoyer</button>
+            {{ form_end(form)}}
+    </div>
+
+    <div class="arrayfoodandsport mt-3">
+        <h2 class="text-center">Suivi des derniers exercices </h2>
+
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Type de sport</th>
+                    <th scope="col">Temps (en minutes)</th>
+                    <th scope="col">Calories dépensées</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for sport in userHistoricalSport %}
+                <tr>
+                    <th scope="row">{{ sport.date_jour_sport| date('d/m/Y') }}</th>
+                    <td>{{ sport.type_de_sport}}</td>
+                    <td>{{ sport.duree_minutes}}</td>
+                    <td>{{ sport.calories_depensees}}</td>
+                    <td>
+                        <a href="{{ path('app_sport_delete', {'id': sport.id}) }}"  onclick="return confirm('Etes-vous sure de vouloir supprimer cet     exercice?')">
+                            Supprimer
+                        </a>
+                    </td>
+
+                    <td>                       
+                        <a href="{{ path('app_sport_update', {'id': sport.id}) }}">
+                            Éditer
+                        </a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        
+        </table>
+
+    </div>
+</div>
+<footer>
+
+{% endblock %}
