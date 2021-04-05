@@ -5,14 +5,18 @@
 {% block content %}
     <section class="homeblock">
         <h1>Suis ton <em class="surligne">évolution</em> jour aprés jour</h1>
-        <p class= "p_home">Reste motivé en parcourant et en commantant les articles de notre blog axé sur la santé, la dietetique et le sport ! </p>
+        <p class= "p_home">Reste motivé en parcourant les articles de notre blog et en suivant ton alimentation et tes dépenses de calories ! </p>
         <div>
-            <button type="button" class="buttonhome">En savoir plus</button>
-            <button type="button" class="buttonhome">Blog</button>
+            <button type="button" class="buttonhome">
+                <a class= "text-white" href="#">En savoir plus</a>
+            </button>
+            <button type="button" class="buttonhome">
+                <a class= "text-white" href="{{ path('blog')}}">Blog</a>
+            </button>
         </div>
     </section>
     <div class="figurehome">
         <img class="yoga" src="{{ asset('img/yoga.svg') }}" alt="yoga">
     </div>
-
+ <footer class="footerfixedbottom ">
 {% endblock %}

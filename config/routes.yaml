@@ -1,3 +1,9 @@
 # index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+#----ROUTES STATIQUES-----#
+app_mentions_legales:
+  path: /mentionslegales
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+  defaults:
+    template: pagesstatiques/mentionslegales.html.twig

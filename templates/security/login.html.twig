@@ -2,7 +2,7 @@
 
 {% block title %}Log in!{% endblock %}
 
-{% block body %}
+{% block content %}
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -40,4 +40,5 @@
     </button>
     <p><a href="{{path('app_forgot_password_request')}}">Mot de passe oublié </a></p>
 </form>
+<footer class="footerfixedbottom">
 {% endblock %}

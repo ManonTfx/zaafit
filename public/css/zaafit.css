@@ -19,6 +19,10 @@ a:link {
     text-decoration: none !important;
 }
 
+li {
+    list-style-type: none !important;
+}
+
 .nav-link {
     color: #74798C !important;
 }
@@ -37,8 +41,25 @@ a:link {
     --bs-gutter-x: -0.5rem !important;
 }
 
+.displaybutton {
+    display: none;
+}
 
-/* CLASS UTILISEES DANS LE FICHIER .JS */
+label {
+    display: none;
+}
+
+.form-check>label {
+    display: block !important;
+}
+
+.olmentionslegales>li {
+    list-style: lower-latin !important;
+}
+
+.blockmentionslegales {
+    margin-left: 30px;
+}
 
 /* HEADER DASHBOARD USERS*/
 .menuburgerbtn {
@@ -111,6 +132,7 @@ a:link {
     margin-top: 15px;
 }
 
+
 .btnWeight:hover {
     color: #0054FE;
     background-color: #FFF;
@@ -141,7 +163,7 @@ a:link {
     margin-left: -10%;
 }
 
-/* GRID DASHBOARD */
+/* GRID DASHBOARD HOME*/
 .grid-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -149,6 +171,7 @@ a:link {
     gap: 15px 20px;
     background-color: #F5F6FA;
     padding-right: 20px;
+    margin-left: -30px;
 }
 
 .homestats {
@@ -158,6 +181,7 @@ a:link {
 .navmenuburger {
     grid-area: 1 / 1 / 4 / 2;
     background-color: #FFF;
+    padding-left: 30px
 }
 
 .homestatsbottom {
@@ -194,6 +218,126 @@ a:link {
     background-color: #FFF;
 }
 
+/* BLOG */
+.small-article-diet-blog>a>img {
+    height: 100px;
+    width: 150px;
+}
+
+.small-article-cardio-blog>a>img {
+    height: 100px;
+    width: 150px;
+}
+
+.small-article-muscu-blog>a>img {
+    height: 100px;
+    width: 150px;
+}
+
+.articlessanteblog {
+    height: 300px;
+    width: 400px;
+}
+
+.santeblog>h2 {
+    margin-left: 30px;
+}
+
+.articleshowimg {
+    width: 50%;
+    height: 600px;
+}
+
+.show-article {
+    margin-left: 30px;
+}
+
+.articlecontenu {
+    margin-top: 30px;
+}
+
+.btncreateorupdate {
+    margin-top: 20px
+}
+
+.main-form-ajout {
+    padding-left: 50px;
+    padding-right: 50px
+}
+
+.big-article-blog {
+    margin-bottom: 30px;
+}
+
+.img-articles-showall {
+    width: 300px;
+}
+
+/* GRID DASHBOARD REPAS ET SPORT*/
+.grid-container-repas {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr repeat(3, 1fr);
+    grid-template-rows: 0.5fr 1.2fr 1.7fr;
+    gap: 5px 9px;
+    background-color: #F5F6FA;
+    padding-right: 20px;
+
+}
+
+.formfoodandsport {
+    grid-area: 1 / 2 / 3 / 6;
+}
+
+.navmenuburgerrepas {
+    grid-area: 1 / 1 / 4 / 2;
+    background-color: #FFF;
+}
+
+.arrayfoodandsport {
+    grid-area: 3 / 2 / 4 / 6;
+    padding-bottom: 200px;
+}
+
+/* GRID CONTAINER ACCUEIL BLOG */
+
+.grid-container-blog-accueil {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.7fr 1.1fr;
+    gap: 20px 20px;
+    grid-template-areas:
+        "secondheaderblog secondheaderblog secondheaderblog"
+        "dietetiqueblog cardioblog muscublog"
+        "santeblog santeblog santeblog";
+    padding-bottom: 300px;
+}
+
+.secondheaderblog {
+    grid-area: secondheaderblog;
+    background-color: #F5F6FA;
+    height: 50px;
+    margin-top: -20px;
+}
+
+.dietetiqueblog {
+    grid-area: dietetiqueblog;
+    margin-left: 30px;
+}
+
+.cardioblog {
+    grid-area: cardioblog;
+    margin-left: 30px;
+}
+
+.muscublog {
+    grid-area: muscublog;
+    margin-left: 30px;
+}
+
+.santeblog {
+    grid-area: santeblog;
+}
+
 /* FORMULAIRE AJOUT POIDS */
 
 .formpoids>p {
@@ -225,6 +369,7 @@ a:link {
     padding: 5px 20px;
     margin-right: 20px;
 }
+
 
 /* HOME */
 .figurehome {
@@ -286,17 +431,14 @@ footer {
     justify-content: space-between;
     font-size: 13px;
     margin-top: 10px;
+
 }
 
-.footerhome {
+.footerfixedbottom {
     position: fixed;
     bottom: 0;
 }
 
 .footerlink {
     padding-left: 5px;
-}
-
-label {
-    display: none;
 }

@@ -3,6 +3,62 @@
 {% block title %}Home - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
 
 {% block content %}
+<div class="grid-container">
+    <nav class="navmenuburger">
+        <a href="{{ path('poids')}}" class="btnWeight btn">+&nbsp;&nbsp;Ajouter poids</a>
+        <div class=" menuburger">
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'users' %}
+                <a href="{{ path('users') }}" class="nav-link">
+                        <img class="icons"src="{{ asset('img/iconhomeblue.svg') }}" alt="">
+                Home
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('users')}}">
+                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="">
+                Home
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'food_user' %}
+                <a class="nav-link" href="{{ path('food_user')}}">
+                    <img class="icons"src="{{ asset('img/iconrepasblue.svg') }}" alt="">
+                Repas
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('food_user')}}">
+                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="">
+                Repas
+                </a>
+                {% endif %}
+
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'sport' %}
+                <a class="nav-link" href="{{ path('sport')}}">
+                    <img class="icons"src="{{ asset('img/iconactivitesblue.svg') }}" alt="">
+                Exercices
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('sport')}}">
+                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="">
+                Exercices
+                </a>
+                {% endif %}
+            </div>
+
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="{{ path('blog')}}">
+                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="">
+                Blog
+                </a>
+            </div>
+        </div>
+    </nav>
     <div class="homestatsupleft homestatsup">
         <p class = "datejour"> {{ dateJour|format_datetime('full', 'none' , locale='fr') |capitalize}}</p>
         <p class = "heure"> {{ heure |format_datetime('none', 'short', locale='fr')}}</p>
@@ -10,20 +66,19 @@
     <div class="homestatsupmiddle homestatsup d-flex  align-items-center justify-content-around">
         <img class="iconsKg"src="{{ asset('img/imc.svg') }}" alt="">               
         <div class="imcdiv">
-        <p>IMC ACTUEL</p>
-        <p class = "imc"> {{ imc|round(1, 'floor') }} - {{ resultimc }}</p>
+            <p>IMC ACTUEL</p>
+            <p class = "imc"> {{ imc|round(1, 'floor') }} - {{ resultimc }}</p>
         </div>
     </div>
     <div class="homestatsupmiddleright d-flex  align-items-center justify-content-around homestatsup">
         <img class="iconsKg"src="{{ asset('img/calories-icon.svg') }}" alt="">
         <div class="imcdiv">
-        <p>Calories brûlés</p>
-        <p class = "imc"> 1230 </p>
+            <p>Calories brûlés</p>
+            <p class = "imc"> {{caloriesTotal}} </p>
         </div>             
-
     </div>
     <div class="homestatsupright homestatsup">
-        <canvas height ="100" id="myChart"></canvas>
+        <canvas height ="85" id="myChart"></canvas>
     </div>
     <section class="homestats">
         <div id="div_chart" class="weightChart"> 
@@ -33,9 +88,46 @@
             </script>
         </div>
     </section>
-    <div class="homestatsbottom">
-    </div>
+    <div class="homestatsbottom mt-5">
+        <h2 class="text-center mt-2">Dernier Repas enregistré </h2>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Petit Déjeuner</th>
+                    <th scope="col">Déjeuner</th>
+                    <th scope="col">Encas</th>
+                    <th scope="col">Diner</th>
+                    <th scope="col">Note de la journée</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                {% for food in dernierRepas %}
+                <tr>
+                    <th scope="row">{{ food.date_jour_repas| date('d/m/Y') }}</th>
+                    <td>{{ food.petit_dejeuner }}</td>
+                    <td>{{ food.dejeuner }}</td>
+                    <td>{{ food.encas }}</td>
+                    <td>{{ food.diner }}</td>
+                    <td>{{ food.note_journee }}</td>
+                    <td>
+                        <a href="{{ path('app_food_delete', {'id': food.id}) }}"  onclick="return confirm('Etes-vous sure de vouloir supprimer ces repas?')">
+                            Supprimer
+                        </a>
+                    </td>
+                    <td>   
+                        <a href="{{ path('app_food_update', {'id': food.id}) }}">
+                            Éditer
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>

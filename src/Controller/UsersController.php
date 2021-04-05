@@ -77,6 +77,7 @@ class UsersController extends AbstractController
         $poidsDepart = $userHistoricalWeights[0]['user_poids'];
         $percent = round(100 * ($poidsDepart - $userWeight) / ($poidsDepart - $objectif));
 
+
         //Calcul IMC
         $userWeight = $userHistoricalWeight['user_poids'];
         $userHeight = $this->getUser()->getTailleUser();
@@ -99,9 +100,28 @@ class UsersController extends AbstractController
             $resultimc = "Obésité morbide";
         }
 
+        // Afficher dernier repas enregistré en BDD
+        $userDataFood = $this->getUser()->getFood();
+        $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $userHistoricalFood = $serializer->serialize($userDataFood, 'json');
+        $userHistoricalFood = json_decode($userHistoricalFood, true);
+        $dernierRepas = array_slice($userHistoricalFood, 0, 1);
+
+        //Afficher les calories dépensées depuis le début : 
+
+        $userDataSport = $this->getUser()->getSports();
+
+        $serializer = \JMS\Serializer\SerializerBuilder::create()->build();
+        $userHistoricalSport = $serializer->serialize($userDataSport, 'json');
+        $userHistoricalSport = json_decode($userHistoricalSport, true);
+
+        $userCaloriesHistorical = array_column($userHistoricalSport, 'calories_depensees');
+        // $caloriesDepensees = array_sum($arraySport);
+        $userCaloriesTotal = array_sum($userCaloriesHistorical);
 
 
 
+        $userHistoricalSport = array_slice($userHistoricalSport, 0, 10);
 
         // Affiche la date et l'heure du jour sur le dashboard
         $dateJour = date('l j F Y, H:i');
@@ -116,13 +136,10 @@ class UsersController extends AbstractController
             'imc' => $imc,
             'resultimc' => $resultimc,
             'percent' => $percent,
+            'dernierRepas' => $dernierRepas,
+            'caloriesTotal' => $userCaloriesTotal,
         ]);
     }
-
-
-
-
-
 
     /**
      * @Route("/users/profil/modification", name="users_profile_edit")

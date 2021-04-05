@@ -18,11 +18,17 @@
     
     {% block header %}
      <header class= "headerhome">
-        <a  href="#"><img class="logo" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo zafit"></a>
+        <a  href="{{path('home')}}"><img class="logo" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo zafit"></a>
         <div>
+            {% if app.user %}
+            <button type="button" class="buttonregister">
+            <a href="{{path('users')}}">Tableau de bord</a> </button>
+            <button type="button" class="buttonlogin"><a href=" {{path('app_logout') }}">Deconnexion</a></button>
+            {% else %} 
             <button type="button" class="buttonregister">
             <a href="{{path('app_register')}}">S'inscrire</a> </button>
-            <button type="button" class="buttonlogin"><a href=" {{path('app_login') }}">Connexion</a></button>         
+            <button type="button" class="buttonlogin"><a href=" {{path('app_login') }}">Connexion</a></button>
+            {% endif %}        
         </div>
     </header>
 {% endblock %}
@@ -31,15 +37,14 @@
 {% block content %}
 {% endblock %}
 
-    
-    <footer class='footerhome'>
+
             <div> © 2020 Copyright:
                 <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
             </div>
             <div>
-            <a href="#!" class="footerlink text-dark">Blog</a>
-            <a href="#!" class="footerlink text-dark">Contact</a>
-            <a href="#!" class="footerlink text-dark">CGV</a>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
             </div>
     </footer>
     </body>

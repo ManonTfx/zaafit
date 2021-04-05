@@ -11,6 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping\OrderBy;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -75,6 +76,7 @@ class User implements UserInterface, \Serializable
 
     /**
      * @ORM\OneToMany(targetEntity=Poids::class, mappedBy="user")
+     * @ORM\OrderBy({"date_jour" = "ASC"})
      */
     private $poids_user;
 
@@ -94,12 +96,27 @@ class User implements UserInterface, \Serializable
      */
     private $sexe;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Food::class, mappedBy="user")
+     * @ORM\OrderBy({"date_jour_repas" = "DESC"})
+     */
+    private $food;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Sport::class, mappedBy="user")
+     * @ORM\OrderBy({"date_jour_sport" = "DESC"})
+     */
+    private $sports;
+
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->updateAt = new \DateTime();
         $this->poids = new ArrayCollection();
         $this->poids_user = new ArrayCollection();
+        $this->food = new ArrayCollection();
+        $this->sports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -370,6 +387,66 @@ class User implements UserInterface, \Serializable
     public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Food[]
+     */
+    public function getFood(): Collection
+    {
+        return $this->food;
+    }
+
+    public function addFood(Food $food): self
+    {
+        if (!$this->food->contains($food)) {
+            $this->food[] = $food;
+            $food->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFood(Food $food): self
+    {
+        if ($this->food->removeElement($food)) {
+            // set the owning side to null (unless already changed)
+            if ($food->getUser() === $this) {
+                $food->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Sport[]
+     */
+    public function getSports(): Collection
+    {
+        return $this->sports;
+    }
+
+    public function addSport(Sport $sport): self
+    {
+        if (!$this->sports->contains($sport)) {
+            $this->sports[] = $sport;
+            $sport->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSport(Sport $sport): self
+    {
+        if ($this->sports->removeElement($sport)) {
+            // set the owning side to null (unless already changed)
+            if ($sport->getUser() === $this) {
+                $sport->setUser(null);
+            }
+        }
 
         return $this;
     }

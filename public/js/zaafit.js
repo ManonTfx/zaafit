@@ -1,7 +1,9 @@
 //menu Burger
 
-// const menuBurger = document.querySelector('.buttonMenuBurger');
-// const menuCache = document.querySelector('.menucache');
+const menuBurgerBtn = document.querySelector('.menuburgerbtn');
+const menuCache = document.querySelector('.navmenuburger');
+
+
 // const displayButton = document.querySelector('.displaybutton');
 
 // function addOrRemoveClass(element, classElement){
@@ -19,4 +21,4 @@
 //     addOrRemoveClass(displayButton, 'displayButton');
 //     addOrRemoveClass(menuCache, 'displayMenuCache');
 // };
-// DOUGNHUT CHART OBJECTIF POIDS
+

@@ -34,7 +34,7 @@ class PoidsController extends AbstractController
             return $this->redirectToRoute('users');
         }
 
-        return $this->render('poids/ajout_poids.html.twig', [
+        return $this->render('users/poids/ajout_poids.html.twig', [
             'form' => $form->createView()
         ]);
     }
