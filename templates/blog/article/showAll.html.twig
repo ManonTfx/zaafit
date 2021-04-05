@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Nos articles {% endblock %}
+
+{% block content %}
+{% if is_granted('ROLE_ADMIN') %}
+    <p><a href="{{ path('app_blog_article_create')}} ">Créer un article</a></p>
+    {% endif %}
+    <table class="table thead-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Publié le</th>
+                <th>Image</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>Action</th>
+                {% endif %}
+            </tr>
+        </thead>
+        
+        <tbody>
+        {% for article in allArticles %}
+            <tr>
+                <td>
+                    <a href=" {{ path('app_blog_article', {'id': article.id}) }} ">
+                        {{ article.titre }}
+                    </a>
+                </td>
+                <td>
+                   {% autoescape false %} {{ article.contenu|u.truncate(200, '...')}} {% endautoescape %}
+                </td>
+                <td>
+                    {{ article.dateCreation | date('d/m/Y')}}
+                </td>
+                <td>
+                <figure>
+                    <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img"class="figure-img img-fluid rounded img-articles-showall">
+                </figure>
+                </td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td>
+                            <a href="{{ path('app_blog_article_delete', {'id': article.id}) }}"  onclick="return confirm('Etes-vous sure de vouloir supprimer cet article?')">
+                            Supprimer
+                            </a>
+                        
+                            <a href="{{ path('app_blog_article_update', {'id': article.id}) }}">
+                            Éditer
+                            </a>
+                            </td>
+                    {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<footer>
+
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.titre}}
+{% endblock %}
+
+{% block content %}
+<div class="show-article">
+    <h2>{{article.titre}}</h2>
+
+    <figure>
+        <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img" class="articleshowimg figure-img img-fluid rounded">
+    </figure>
+         <p>Publié le : {{article.dateCreation | date("d:m:Y")}} </p>
+
+    <p class="articlecontenu">
+        {{article.contenu | raw }}
+    </p>
+</div>
+<footer>
+{% endblock %}

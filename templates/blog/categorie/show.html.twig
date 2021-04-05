@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+
+{{categorie.nom}}
+
+{% endblock %}
+
+{% block content %}
+<h2> {{categorie.nom}}</h2>
+
+<hr>
+
+<h3> Tous les articles de la catégorie </h3>
+
+<table class="table thead-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Publié le</th>
+                <th>Image</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>Action</th>
+                {% endif %}
+            </tr>
+        </thead>
+        
+        <tbody>
+        {% for article in categorie.articles %}
+
+            <tr>
+                <td>
+                        {{ article.titre }}
+                </td>
+                <td>
+                   {% autoescape false %} {{ article.contenu|u.truncate(200, '...') }} {% endautoescape %}
+                </td>
+                <td>
+                <figure>
+                    <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img"class="img-articles-showall figure-img img-fluid rounded">
+                </figure>
+                </td>
+                <td>
+                   {{ article.dateCreation | date('d/m/Y')}}
+                </td>
+                {% if is_granted('ROLE_ADMIN') %}
+
+                <td>
+                    <a href="{{ path('app_blog_categorie_delete', {'id': categorie.id}) }}" onclick="return confirm('Etes-vous sure de vouloir supprimer cette catégorie?')">
+                        Supprimer
+                    </a>
+                    |
+                    <a href="{{ path('app_blog_categorie_update', {'id': categorie.id}) }}">
+                        Éditer
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

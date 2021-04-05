@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'une categorie{% endblock %}
+
+{% block content %}
+<div class="main-form-ajout">
+<h2>Ajout d'une categorie</h2>
+    {{ form_start(form)}}
+    {{ form_row(form.nom)}}
+    {% if app.request.get('_route') == 'app_blog_categorie_create'%}
+    <button type="submit" class="btn-primary btn btncreateorupdate">Ajouter une catégorie</button>
+    {% else %}
+    <button type="submit" class="btn-primary btn btncreateorupdate">Editer la catégorie</button>
+    {% endif %}
+    {{ form_end(form)}}
+</div>
+<footer class="footerfixedbottom ">
+
+{% endblock %}

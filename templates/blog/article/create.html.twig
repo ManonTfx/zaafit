@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Creer un article
+{% endblock %}
+
+{% block content %}
+<div class="main-form-ajout">
+{% if app.request.get('_route') == 'app_blog_article_create'%}
+<h2>Ajouter un nouvel article</h2>
+{% else %}
+<h2>Editer l'article N° {{article.id}}</h2>
+{% endif %}
+
+    {{ form_start(form)}}
+    {{ form_row(form.titre)}}
+    {{ form_row(form.imageFile) }}
+    {{ form_label(form.contenu)}}
+    {{ form_widget(form.contenu)}}
+    {{ form_row(form.categories) }}
+    <br>
+    {% if app.request.get('_route') == 'app_blog_article_create'%}
+    <button type="submit" class="btn-primary btn btncreateorupdate">Ajouter un article</button>
+    {% else %}
+    <button type="submit" class="btn-primary btn btncreateorupdate">Editer l'article</button>
+    {% endif %}
+    {{ form_end(form)}}
+</div>
+<footer class="footerfixedbottom ">
+
+{% endblock %}

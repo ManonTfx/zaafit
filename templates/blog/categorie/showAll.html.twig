@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Tout les articles {% endblock %}
+
+{% block content %}
+{% if is_granted('ROLE_ADMIN') %}
+    <p><a href="{{ path('app_blog_categorie_create') }}" >Ajouter une categorie</a></p>
+    {% endif %}
+    <table class="table thead-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        
+        <tbody>
+        {% for categorie in allCategories %}
+            <tr>
+                <td>
+                    <a href="{{ path('app_blog_categorie', {'id': categorie.id} ) }}">
+                        {{ categorie.nom }}
+                    </a>
+                </td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>
+                        <a href="{{ path('app_blog_categorie_delete', {'id': categorie.id}) }} " onclick="return confirm('Etes-vous sure de vouloir supprimer cette catégorie?')">
+                            Supprimer
+                        </a>
+                        |
+                        <a href="{{ path('app_blog_categorie_update', {'id': categorie.id}) }} ">
+                            Éditer
+                        </a>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<footer class="footer-categorie-ajout">
+{% endblock %}
+
