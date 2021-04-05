@@ -1,0 +1,88 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Repas - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+
+{% block content %}
+<div class="grid-container-repas">
+    <nav class="navmenuburgerrepas">
+        <a href="{{ path('poids')}}" class="btnWeight btn">+&nbsp;&nbsp;Ajouter poids</a>
+        <div class=" menuburger">
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'users' %}
+                <a href="{{ path('users') }}" class="nav-link">
+                        <img class="icons"src="{{ asset('img/iconhomeblue.svg') }}" alt="">
+                Home
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('users')}}">
+                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="">
+                Home
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'food_user' %}
+                <a class="nav-link" href="{{ path('food_user')}}">
+                    <img class="icons"src="{{ asset('img/iconrepasblue.svg') }}" alt="">
+                Repas
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('food_user')}}">
+                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="">
+                Repas
+                </a>
+                {% endif %}
+
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if app.request.get('_route') == 'sport' %}
+                <a class="nav-link" href="{{ path('sport')}}">
+                    <img class="icons"src="{{ asset('img/iconactivitesblue.svg') }}" alt="">
+                Exercices
+                </a>
+                {% else %}
+                <a class="nav-link" href="{{ path('sport')}}">
+                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="">
+                Exercices
+                </a>
+                {% endif %}
+            </div>
+
+            <div class="d-flex align-items-center">
+                <a class="nav-link" href="{{ path('blog')}}">
+                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="">
+                Blog
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="formfoodandsport mt-3">
+        <h2 class="text-center">Ajoutez vos repas en fin de journée:</h2>
+            {{ form_start(form)}}
+                <p>Selectionnez la date</p>
+            {{ form_row(form.date_jour_repas) }}
+  
+                <p>Petit déjeuner</p>
+            {{ form_row(form.petit_dejeuner) }}
+                <p>Déjeuner</p>
+            {{ form_row(form.dejeuner) }}
+                <p>Encas</p>
+            {{ form_row(form.encas) }}
+                <p>Diner</p>
+            {{ form_row(form.diner) }}
+                <p>Note de la journée</p>
+            {{ form_row(form.note_journee) }}
+                <button type="submit" class="btn-primary btn mt-3">Envoyer</button>
+            {{ form_end(form)}}
+    </div>
+
+    <div class="arrayfoodandsport mt-5">
+
+    </div>
+</div>
+<footer class="footerfixedbottom">
+
+{% endblock %}
