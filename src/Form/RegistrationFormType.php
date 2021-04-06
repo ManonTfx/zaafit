@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Historique;
+use App\Entity\Poids;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,50 +26,67 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('plainPassword', RepeatedType::class, [
+                // instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'type' => PasswordType::class,
+                'invalid_message' => 'Les mots de passes ne sont pas identiques',
+                // 'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => [
+                    'attr' => ['placeholder' => 'Mot de passe']
+                ],
+                'second_options' => [
+                    'attr' => ['placeholder' => 'Confirmation du passe']
+                ],
+                'mapped' => false,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a password',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                ],
+            ])
             ->add('nom', TextType::class, array(
-                'label' => 'user.form.register.nom.label',
                 'attr' => array(
                     'placeholder' => 'Nom',
 
                 )
             ))
             ->add('prenom', TextType::class, array(
-                'label' => 'user.form.register.prenom.label',
                 'attr' => array(
                     'placeholder' => 'Prénom',
                 )
             ))
             ->add('sexe', ChoiceType::class, [
-                'label' => 'user.form.register.sexe.label',
                 'choices'  => [
                     'Femme' => 'f',
                     'Homme' => 'h',
                 ]
             ])
-            ->add('imageFile', FileType::class, [
-                'label' => 'user.form.register.imageFile.label',
-            ])
+            ->add('imageFile', FileType::class)
             ->add('taille_user', NumberType::class, array(
-                'label' => 'user.form.register.taille_user.label',
                 'attr' => array(
                     'placeholder' => '000',
                 )
             ))
 
             ->add('objectif_poids', NumberType::class, array(
-                'label' => 'user.form.register.objectif_poids.label',
                 'attr' => array(
                     'placeholder' => '00.0',
                 )
             ))
             ->add('email', TextType::class, array(
-                'label' => 'user.form.register.email.label',
                 'attr' => array(
                     'placeholder' => 'Adresse mail',
                 )
             ))
             ->add('agreeTerms', CheckboxType::class, [
-                'label' => 'user.form.register.agreeTerms.label',
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
