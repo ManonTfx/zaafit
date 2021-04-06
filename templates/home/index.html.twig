@@ -4,7 +4,7 @@
 
 {% block content %}
     <section class="homeblock">
-        <h1>Suis ton <em class="surligne">évolution</em> jour aprés jour</h1>
+        <h1 class="titrehome">Suis ton <em class="surligne">évolution</em> jour aprés jour</h1>
         <p class= "p_home">Reste motivé en parcourant les articles de notre blog et en suivant ton alimentation et tes dépenses de calories ! </p>
         <div>
             <button type="button" class="buttonhome">
@@ -18,5 +18,14 @@
     <div class="figurehome">
         <img class="yoga" src="{{ asset('img/yoga.svg') }}" alt="yoga">
     </div>
- <footer class="footerfixedbottom ">
+    <footer class="footertelandtab">
+       <div> © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+        </div>
+        <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+        </div>
+    </footer>
 {% endblock %}

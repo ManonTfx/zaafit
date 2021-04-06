@@ -18,6 +18,7 @@
             </li>
         </ul>
     </nav>
+
     <div class="dietetiqueblog">
         <h2 class="" >Dietetique</h2>
         {% for article in categoriediet.articles|slice(0, 1) %}
@@ -122,6 +123,117 @@
     </div>
 </div>
 
-<footer class='footerblog'>
+
+
+<div class="container-accueil-blog-tabandtel">
+    <nav class="mt-1 mb-2" >
+        {% for categorie in allcategories %}
+                <a class="nav-link p-0" href="{{ path('app_blog_categorie', {'id': categorie.id} ) }}">{{ categorie.nom }}</a>
+             {% endfor %}
+                <a class="nav-link p-0" href="{{ path('app_blog_article_showAll') }}">TOUS LES ARTICLES</a>
+    </nav>
+
+    <div class="text-center">
+        <h2 class="" >Dietetique</h2>
+        {% for article in categoriediet.articles|slice(0, 1) %}
+        <div class="big-article-blog">
+            <a class="" href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class="figure-img img-fluid rounded">
+            </a>
+            <h3>{{ article.titre }}</h3>
+            <p>Publié le {{ article.date_creation| date('d/m/Y')}}</p>
+            <p>{% autoescape false %} {{ article.contenu|u.truncate(100, '...')}} {% endautoescape %}</p>
+        </div>
+        {% endfor %}
+        <div class="small-article-diet-blog ">
+                {% for article in categoriediet.articles|slice(1, 2) %}
+
+            <a href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class="figure-img img-fluid rounded">
+            </a>
+            <div>
+                <p>{{article.titre}}</p>
+                <p>{{ article.date_creation| date('d/m/Y')}}</p>
+            </div>
+            <hr>
+        {% endfor %}
+
+        </div>
+    </div>
+
+    <div class="text-center">
+    <h2 class="" >Cardio</h2>
+        
+        <div>
+        {% for article in categoriecardio.articles|slice(0, 1) %}
+            <a class="" href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class="figure-img img-fluid rounded">
+            </a>
+            <h3>{{ article.titre }}</h3>
+            <p>Publié le {{ article.date_creation| date('d/m/Y')}}</p>
+            <p>{% autoescape false %} {{ article.contenu|u.truncate(100, '...')}} {% endautoescape %}</p>
+             {% endfor %}
+        </div>
+       
+        
+        <div class="small-article-cardio-blog ">
+        {% for article in categoriecardio.articles|slice(1, 2) %}
+            <a href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class=" mb-2 img-fluid rounded">
+            </a>
+            <div>
+                <p>{{article.titre}}</p>
+                <p>{{ article.date_creation| date('d/m/Y')}}</p>
+            </div>
+            <hr>
+             {% endfor %}
+        </div>
+       
+       
+    </div>
+
+    <div class="text-center">
+      <h2>Musculation</h2>
+        {% for article in categoriemuscu.articles|slice(0, 1) %}
+        <div class="big-article-blog">
+            <a class="" href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class="figure-img img-fluid rounded">
+            </a>
+            <h3>{{ article.titre }}</h3>
+            <p>Publié le {{ article.date_creation| date('d/m/Y')}}</p>
+            <p>{% autoescape false %} {{ article.contenu|u.truncate(100, '...')}} {% endautoescape %}</p>
+        </div>
+        {% endfor %}
+        <div class="small-article-muscu-blog  ">
+                {% for article in categoriemuscu.articles|slice(1, 2) %}
+
+            <a href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class="figure-img img-fluid rounded">
+            </a>
+            <div>
+                <p>{{article.titre}}</p>
+                <p>{{ article.date_creation| date('d/m/Y')}}</p>
+            </div>
+            <hr>
+                    {% endfor %}
+        </div>
+    </div>
+    <div class="text-center">
+        <h2>Santé / Bien-être</h2>
+        <div>
+            {% for article in categoriesante.articles|slice(0, 3) %}
+                <div>
+                    <a href="{{ path('app_blog_article', {'id': article.id} ) }}">
+                        <img src="{{ asset('images/imgarticle/' ~ article.image) }}" alt="" class="figure-img img-fluid rounded">
+                    </a>
+                    <div>
+                        <h3>{{ article.titre }}</h3>
+                        <p>Publié le {{ article.date_creation| date('d/m/Y')}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

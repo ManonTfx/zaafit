@@ -13,13 +13,11 @@
         {% endblock %}
     </head>
 
-    {% block body %}
-    <body>
     
     {% block header %}
      <header class= "headerhome">
         <a  href="{{path('home')}}"><img class="logo" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo zafit"></a>
-        <div>
+        <div class="btnheaderhomepc">
             {% if app.user %}
             <button type="button" class="buttonregister">
             <a href="{{path('users')}}">Tableau de bord</a> </button>
@@ -30,14 +28,29 @@
             <button type="button" class="buttonlogin"><a href=" {{path('app_login') }}">Connexion</a></button>
             {% endif %}        
         </div>
+        <div class="btnheaderhometabandtel dropdown">
+              <button class="btn btn-light dropdown-toggle btndropresponsive" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{{ asset('img/menuburger.svg') }}" alt="responsive-btn-deroulant">
+        </button> 
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    {% if app.user %}
+                        <a class="dropdown-item" href="{{path('users')}}">Tableau de bord</a>
+                        <a class="dropdown-item" href="{{path('app_logout') }}">Deconnexion</a>
+                    {% else %}
+                        <a class="dropdown-item" href="{{path('app_register')}}">S'inscrire</a>
+                        <a class="dropdown-item" href="{{path('app_login') }}">Connexion</a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
     </header>
 {% endblock %}
 
 
 {% block content %}
 {% endblock %}
-
-
+{% if app.request.get('_route') == 'blog'%}
+    <footer class='footerblog'>
             <div> © 2020 Copyright:
                 <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
             </div>
@@ -47,8 +60,96 @@
             <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
             </div>
     </footer>
-    </body>
-{% endblock %}
+{% elseif app.request.get('_route') == 'app_promotetoadmin'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% elseif app.request.get('_route') == 'app_login'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% elseif app.request.get('_route') == 'users_pass_edit'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% elseif app.request.get('_route') == 'app_forgot_password_request'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% elseif app.request.get('_route') == 'app_check_email'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% elseif app.request.get('_route') == 'app_register'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% elseif app.request.get('_route') == 'home'%}
+    <footer class='footerfixedbottom'>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% else %}
+    <footer>
+            <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+            </div>
+            <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            </div>
+    </footer>
+{% endif %}
+
 
         {% block javascripts %}
         <script src="{{ asset('js/zaafit.js') }}"></script>

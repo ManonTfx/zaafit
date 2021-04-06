@@ -4,17 +4,19 @@
 
 {% block content %}
 
-<div class="container mt-5 mb-5 col-6">
-
-    <div class="register bg-light">
+<div class="formregister">
+<div class="img-register">
+        <img class="img-login" src="{{ asset('img/register.svg') }}" alt="img-register">
         <h1>Inscription</h1>
+        </div>       
         {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.nom) }}
         {{ form_row(registrationForm.prenom) }}
-        <div class = "d-flex justify-content-between">
-            <p>Séléctionnez une photo de profil</p>
-            {{ form_row(registrationForm.imageFile) }}
+        <div class="formphotoprofil">
+        <p>Séléctionnez une photo de profil</p>
+        {{ form_row(registrationForm.imageFile) }}
         </div>
+        
         <div class = "d-flex justify-content-between">
             <p>Votre taille en cm</p>
             {{ form_row(registrationForm.taille_user) }}
@@ -34,13 +36,20 @@
         {{ form_row(registrationForm.sexe) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.agreeTerms) }}
     
-        <button type="submit" class="btn btn-primary mb-2 mt-1">S'inscrire</button>
+        <button type="submit" class="btn btn-login mb-2 mt-1">S'inscrire</button>
         {{ form_end(registrationForm) }}
-    </div>
 
 </div>
-<footer class="footerfixedbottom">
+    <footer class="footertelandtab">
+       <div> © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+        </div>
+        <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+        </div>
+    </footer>
 
 {% endblock %}
