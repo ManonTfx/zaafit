@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Constraints\Date;
 use UserBundle\Form\RegisterForm;
+use UserBundle\Form\RegisterFormType;
 
 class RegistrationController extends AbstractController
 {
@@ -25,9 +26,9 @@ class RegistrationController extends AbstractController
         $user = new User();
         $poids = new Poids();
 
-        $form = $this->createForm(RegisterForm::class, ['user' => $user, $poids]);
+        $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
+        $poidsUser = $request->request->get("poids_user", "00");
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,8 +41,11 @@ class RegistrationController extends AbstractController
             );
             $user->addPoid($poids);
             $poids->setDateJour(new \DateTime('now'));
+            // $poids->setUserPoids(
+            //     $form->get('poids_user')->getData()
+            // );
             $poids->setUserPoids(
-                $form->get('user_poids')->getData()
+                $poidsUser
             );
 
 
