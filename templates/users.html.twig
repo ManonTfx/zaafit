@@ -51,12 +51,23 @@
 {% block content %}
 {% endblock %}
 
+    <footer class="footertelandtab">
+       <div> © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
+        </div>
+        <div>
+            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
 
+        </div>
+    </footer>
 
 {% if app.request.get('_route') == 'users'%}
     <footer>
             <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
             </div>
             <div>
             <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
@@ -69,7 +80,7 @@
 {% elseif app.request.get('_route') == 'food_user'%}
     <footer>
             <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
             </div>
             <div>
             <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
@@ -82,7 +93,7 @@
 {% elseif app.request.get('_route') == 'sport'%}
     <footer>
             <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
             </div>
             <div>
             <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
@@ -95,7 +106,7 @@
 {% elseif app.request.get('_route') == 'app_food_update'%}
     <footer>
             <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
             </div>
             <div>
             <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
@@ -109,7 +120,7 @@
 {% else %}
         <footer class="footerfixedbottom">
             <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
             </div>
             <div>
             <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
