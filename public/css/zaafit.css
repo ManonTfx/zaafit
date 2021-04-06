@@ -647,15 +647,24 @@
     }
 
     @media screen and (max-width: 780px) {
+        .footertelandtab {
+            display: block;
+            text-align: center;
+            margin-top: 400px;
+            height: 60px;
+        }
 
-        /* HEADER HOME */
+        footer,
+        .footerfixedbottom,
+        .btnheaderhomepc,
+        .footerblog {
+            display: none;
+        }
+
         .btnheaderhometabandtel {
             display: block;
         }
 
-        .btnheaderhomepc {
-            display: none;
-        }
 
         .dropdown-toggle::after {
             display: none !important;
@@ -664,8 +673,6 @@
         .headerhome {
             border-bottom: solid lightgrey 0.5px;
         }
-
-        /* HOME */
 
 
         .figurehome {
