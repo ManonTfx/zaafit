@@ -85,15 +85,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Adresse mail',
                 )
-            ))
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez accepter les conditions générales',
-                    ]),
-                ],
-            ]);
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
