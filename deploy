@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -av ./ 4x135_zaafit@zaafit.fr:~/zaafit --include=public/build --include=vendor --exclude-from=.gitignore --exclude=".*" --exclude="deploy"
