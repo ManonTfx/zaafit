@@ -646,7 +646,7 @@
 
     }
 
-    @media screen and (max-width: 780px) {
+    @media (max-width: 780px) {
         .footertelandtab {
             display: block;
             text-align: center;
@@ -736,7 +736,7 @@
     }
 
 
-    @media screen and (max-width: 1000px) {
+    @media (max-width: 1000px) {
 
 
         g>rect:last-child {
