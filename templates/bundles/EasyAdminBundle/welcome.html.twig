@@ -1,0 +1,18 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title 'Coucou' %}
+
+{% block page_content %}
+    <style>
+        p { max-width: 600px; }
+    </style>
+
+
+    <pre>{{ dashboard_controller_filepath }}</pre>
+
+    <p>
+        Admin
+    </p>
+
+{% endblock %}
