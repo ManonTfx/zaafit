@@ -491,6 +491,7 @@ footer {
 
 
 @media(max-width: 780px) {
+
     footer {
         text-align: center;
         height: 60px;
@@ -633,6 +634,11 @@ footer {
 
 
 @media(max-width: 1000px) {
+    .articleshowimg {
+        width: 400px;
+        height: 300px;
+    }
+
     .btnWeightTabAndTel {
         display: block;
         width: 50px;

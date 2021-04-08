@@ -1,6 +1,6 @@
 {% extends 'users.html.twig' %}
 
-{% block title %}Exercices - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
+{% block title %}Modifier sport - {{ app.user.prenom }} {{ app.user.nom }}{% endblock %}
 
 {% block content %}
 <div class="containerFoodAndSportUser">
@@ -64,7 +64,7 @@
     </nav>
 
     <div class="formfoodandsport mt-3">
-        <h2 class="text-center">Ajoutez une nouvelle activitée!</h2>
+        <h2 class="text-center">Modifier votre activitée </h2>
             {{ form_start(form)}}
                 <p>Selectionnez la date</p>
             {{ form_row(form.date_jour_sport) }}
