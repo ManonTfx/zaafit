@@ -45,7 +45,7 @@ class SecurityController extends AbstractController
      */
     public function promoteToAdmin(Request $request, $id)
     {
-        $secret = "toto";
+        $secret = "PanamCityGang";
 
         $form = $this->createForm(PromoteAdminType::class);
         $form->handleRequest($request);
