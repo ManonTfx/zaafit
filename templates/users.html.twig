@@ -66,10 +66,9 @@
             <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap" rel="stylesheet">
         {% endblock %}
     </head>
-    
+
+    <body>
     {% block header %}
-
-
           <header class="headerusers mb-3">
             <div class="d-flex align-items-center">
                 <a href="{{path('users')}}"><img class="logo logousers" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo-zaafit"></a>
@@ -101,8 +100,10 @@
 
     {% endblock %}
 
-{% block content %}
-{% endblock %}
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
 
     <footer class="footertelandtab">
        <div> © 2020 Copyright:
@@ -116,74 +117,7 @@
 
         </div>
     </footer>
-
-{% if app.request.get('_route') == 'users'%}
-    <footer>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'food_user'%}
-    <footer>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'sport'%}
-    <footer>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'app_food_update'%}
-    <footer>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-
-            </div>
-    </footer>
-    
-{% else %}
-        <footer class="footerfixedbottom">
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-
-            </div>
-    </footer>
-{% endif %}
+   
 
         <script type="text/javascript">
         tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
@@ -199,5 +133,5 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>      
         {% endblock %}
        
-
+ </body>
 </html>

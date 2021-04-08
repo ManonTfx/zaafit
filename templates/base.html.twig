@@ -66,9 +66,9 @@
         {% endblock %}
     </head>
 
-
+<body>
 {% block header %}
-     <header class= "headerhome">
+    <header class= "headerhome">
         <a  href="{{path('home')}}"><img class="logo" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo zafit"></a>
         <div class="btnheaderhomepc">
             {% if app.user %}
@@ -101,149 +101,36 @@
 
 
     
-<main>
-{% block content %}
-{% endblock %}
-</main>
-
-<script type="text/javascript">
-        tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
-        tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
-        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
-</script>
-
-    <footer class="footertelandtab">
-       <div> © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-        </div>
-        <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-
-        </div>
-    </footer>
-{% if app.request.get('_route') == 'blog'%}
-    <footer class='footerblog'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'app_promotetoadmin'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'app_login'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'users_pass_edit'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'app_forgot_password_request'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'app_check_email'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'app_register'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% elseif app.request.get('_route') == 'home'%}
-    <footer class='footerfixedbottom'>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% else %}
-    <footer>
-            <div> © 2020 Copyright:
-                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.site</a>
-            </div>
-            <div>
-            <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
-            <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
-            <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
-            <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
-            </div>
-    </footer>
-{% endif %}
-        
+    <main>
+        {% block content %}
+        {% endblock %}
 
 
+        <script type="text/javascript">
+            tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
+            tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
+            (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+        </script>
+    </main>
+        <footer>
+        <div> © 2020 Copyright:
+                <a class="text-dark" href="https://mdbootstrap.com/">zaafit.fr</a>
+            </div>
+            <div>
+                <a href="{{ path('blog')}}" class="footerlink text-dark">Blog</a>
+                <a href="mailto:manon.trefoux@gmail.com" class="footerlink text-dark">Contact</a>
+                <a href="{{ path('app_mentions_legales')}}" class="footerlink text-dark">Mentions légales</a>
+                <a href="{{ path('app_pol_confidentialite')}}" class="footerlink text-dark">Politique de confidentialité</a>
+
+            </div>
+        </footer>
         {% block javascripts %}
-      
-        <script src="{{ asset('js/zaafit.js') }}"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+            <script src="{{ asset('js/zaafit.js') }}"></script>
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>            
         {% endblock %}
-       
+    </body>
 
 </html>
