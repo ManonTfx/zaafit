@@ -5,10 +5,14 @@
 {% block content %}
     <section class="homeblock">
         <h1 class="titrehome">Suis ton <em class="surligne">évolution</em> jour aprés jour</h1>
-        <p class= "p_home">Reste motivé en parcourant les articles de notre blog et en suivant ton alimentation et tes dépenses de calories ! </p>
+        <p class= "p_home">Reste motivé en parcourant les articles de notre blog, en suivant tes repas et tes séances de sport, et en suivant ta courbe de poids ! </p>
         <div class="btn-home">
             <button type="button" class="buttonhome">
+            {% if app.user %}
+            <a class= "text-white" href="{{ path('app_login')}}">Tableau de bord</a>
+            {% else %}
                 <a class= "text-white" href="{{ path('app_login')}}">Se connecter</a>
+            {% endif %}
             </button>
             <button type="button" class="buttonhome">
                 <a class= "text-white" href="{{ path('blog')}}">Blog</a>

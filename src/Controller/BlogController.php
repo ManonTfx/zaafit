@@ -21,7 +21,7 @@ class BlogController extends AbstractController
         $categoriediet = $this->getDoctrine()->getRepository(Categorie::class)->findOneBy(["nom" => "DIETETIQUE"]);
         $categoriecardio = $this->getDoctrine()->getRepository(Categorie::class)->findOneBy(["nom" => "CARDIO"]);
         $categoriemuscu = $this->getDoctrine()->getRepository(Categorie::class)->findOneBy(["nom" => "MUSCULATION"]);
-        $categoriesante = $this->getDoctrine()->getRepository(Categorie::class)->findOneBy(["nom" => "SANTE / BIEN-ETRE"]);
+        $categoriesante = $this->getDoctrine()->getRepository(Categorie::class)->findOneBy(["nom" => "SANTE"]);
 
 
 

@@ -1,0 +1,171 @@
+/* GRID DASHBOARD HOME*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 0.5fr 1.5fr 1.4fr;
+    gap: 15px 20px;
+    background-color: #F5F6FA;
+    padding-right: 20px;
+    margin-left: -30px;
+}
+
+.homestats {
+    grid-area: 2 / 2 / 3 / 6;
+    background-color: white;
+    padding: 30px;
+}
+
+.navmenuburger {
+    grid-area: 1 / 1 / 4 / 2;
+    background-color: #FFF;
+    padding-left: 30px
+}
+
+.homestatsbottom {
+    grid-area: 3 / 2 / 4 / 6;
+}
+
+.homestatsupleft {
+    grid-area: 1 / 2 / 2 / 3;
+    background-color: #0054FE !important;
+    color: #FFF;
+    padding: 10px;
+}
+
+.homestatsupmiddle {
+    grid-area: 1 / 3 / 2 / 4;
+
+
+}
+
+.homestatsupmiddleright {
+    grid-area: 1 / 4 / 2 / 5;
+
+
+}
+
+.homestatsupright {
+    grid-area: 1 / 5 / 2 / 6;
+
+
+}
+
+.homestatsup {
+    height: 100px;
+    margin-top: 10px;
+    background-color: #FFF;
+}
+
+
+/* GRID CONTAINER ACCUEIL BLOG */
+.container-accueil-blog-tabandtel {
+    display: none;
+}
+
+.grid-container-blog-accueil {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.7fr 1.1fr;
+    gap: 20px 20px;
+    grid-template-areas:
+        "secondheaderblog secondheaderblog secondheaderblog"
+        "dietetiqueblog cardioblog muscublog"
+        "santeblog santeblog santeblog";
+    padding-bottom: 300px;
+}
+
+.secondheaderblog {
+    grid-area: secondheaderblog;
+    background-color: #F5F6FA;
+    height: 50px;
+    margin-top: -20px;
+}
+
+.dietetiqueblog {
+    grid-area: dietetiqueblog;
+    margin-left: 30px;
+}
+
+.cardioblog {
+    grid-area: cardioblog;
+    margin-left: 30px;
+}
+
+.muscublog {
+    grid-area: muscublog;
+    margin-left: 30px;
+}
+
+.santeblog {
+    grid-area: santeblog;
+}
+
+/* GRID DASHBOARD REPAS ET SPORT*/
+.grid-container-foodandsport {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr repeat(3, 1fr);
+    grid-template-rows: 0.5fr 1.2fr 1.7fr;
+    gap: 5px 9px;
+    background-color: #F5F6FA;
+    padding-right: 20px;
+
+}
+
+.formfoodandsport {
+    grid-area: 1 / 2 / 3 / 6;
+}
+
+.navmenuburgerfoodandsport {
+    grid-area: 1 / 1 / 4 / 2;
+    background-color: #FFF;
+}
+
+.arrayfoodandsport {
+    grid-area: 3 / 2 / 4 / 6;
+    padding-bottom: 200px;
+}
+
+@media(max-width: 780px) {
+
+    /* GRID DASHBOARD USER */
+    .grid-container {
+        display: grid;
+        grid-template-columns: 0.6fr 1.2fr 1.2fr;
+        grid-template-rows: 0.4fr 0.4fr 1.5fr 1.7fr;
+        gap: 0px 12px;
+        grid-template-areas:
+            "navmenuburger homestatsupleft homestatsupmiddle"
+            "navmenuburger homestatsupmiddleright homestatsupright"
+            "navmenuburger homestats homestats"
+            "navmenuburger homestatsbottom homestatsbottom";
+    }
+
+    .navmenuburger {
+        grid-area: navmenuburger;
+    }
+
+    .homestatsupleft {
+        grid-area: homestatsupleft;
+    }
+
+    .homestatsupmiddle {
+        grid-area: homestatsupmiddle;
+    }
+
+    .homestatsupmiddleright {
+        grid-area: homestatsupmiddleright;
+    }
+
+    .homestatsupright {
+        grid-area: homestatsupright;
+    }
+
+    .homestats {
+        grid-area: homestats;
+        margin-top: 20px;
+    }
+
+    .homestatsbottom {
+        grid-area: homestatsbottom;
+    }
+}

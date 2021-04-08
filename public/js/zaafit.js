@@ -3,7 +3,7 @@
 const menuBurgerBtn = document.querySelector('.menuburgerbtn');
 const menuCache = document.querySelector('.navmenuburgerfoodandsport');
 const masqueMenu = document.querySelector('.masquemenu');
-const afficheMenu = document.querySelector('.affichemenu');
+const afficheMenu = document.querySelector('.displayMenu');
 const containerHomeUser = document.querySelector('.containerFoodAndSportUser');
 
 
@@ -21,5 +21,5 @@ menuBurgerBtn.onclick = function(){
     addOrRemoveClass(masqueMenu,'displayNone');
     addOrRemoveClass(menuCache, 'displayNone');
     addOrRemoveClass(containerHomeUser, 'marginleft200');
-    addOrRemoveClass(afficheMenu, 'displayBlock');
+    addOrRemoveClass(displayMenu, 'displayBlock');
 };

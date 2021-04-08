@@ -1,0 +1,29 @@
+.displayButton {
+    display: none;
+}
+
+.displayMenu {
+    display: none;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.marginAuto {
+    margin: auto;
+}
+
+.marginleft200 {
+    margin-left: -200px;
+
+}
+
+.displayNone {
+    display: none;
+}
+
+.chartHomeStatsBurger {
+    padding: 50px;
+
+}
