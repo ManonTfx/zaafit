@@ -58,8 +58,8 @@
         {% endblock %}
     </head>
 
-    
-    {% block header %}
+
+{% block header %}
      <header class= "headerhome">
         <a  href="{{path('home')}}"><img class="logo" src="{{ asset('img/zaafitlogo.webp') }}" alt="logo zafit"></a>
         <div class="btnheaderhomepc">
@@ -92,8 +92,17 @@
 {% endblock %}
 
 
+    
+
 {% block content %}
 {% endblock %}
+
+
+<script type="text/javascript">
+        tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
+        tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
+        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+</script>
 
     <footer class="footertelandtab">
        <div> © 2020 Copyright:
@@ -216,11 +225,7 @@
             </div>
     </footer>
 {% endif %}
-        <script type="text/javascript">
-        tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
-        tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
-        (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
-        </script>
+        
 
 
         {% block javascripts %}

@@ -71,6 +71,10 @@
 }
 
 /* GENERAL */
+body {
+    margin-bottom: 50px;
+}
+
 canvas {
     height: 80px !important;
     width: 100px !important;
@@ -689,9 +693,18 @@ textarea {
     .footertelandtab {
         display: block;
         text-align: center;
-        margin-top: 400px;
+        /* margin-top: 250px; */
         height: 60px;
+        position: fixed;
+        height: 50px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 50px;
     }
+
+
 
     footer,
     .footerfixedbottom,
@@ -702,6 +715,7 @@ textarea {
 
     .btnheaderhometabandtel {
         display: block;
+
     }
 
 
@@ -713,26 +727,45 @@ textarea {
         border-bottom: solid lightgrey 0.5px;
     }
 
-
-    .figurehome {
-        top: 65px;
-
-    }
-
-    .yoga {
+    .p_home {
         display: none;
     }
 
+
+    .figurehome {
+        top: 65px;
+        width: 60%;
+        height: 40%;
+    }
+
+    .yoga {
+        height: 18em;
+        width: 95%;
+        top: 18%;
+        display: block;
+    }
+
+
     .dropdown-menu.show {
-        left: -55px !important;
+        left: -72px !important;
+        top: 7px !important;
+    }
+
+    .logo {
+        margin-top: 14px;
     }
 
     .titrehome {
-        font-size: 60px;
+        font-size: 59px;
+        margin-bottom: 50px;
+    }
+
+    .btn-home {
+        display: flex;
     }
 
     .homeblock {
-        width: 60%;
+        width: 80%;
         top: 20px;
         left: 20px;
     }
@@ -742,17 +775,17 @@ textarea {
     }
 
     .buttonhome {
-        width: 140px;
         background-color: #0054FE;
         color: #FFF;
         padding: 5px 20px;
         border-radius: 13px;
         margin-right: 20px;
-        margin-top: 20px;
+        margin-top: 50px;
     }
 
     .buttonhome>a {
         font-size: 15px;
+
     }
 
     /* BLOG */
