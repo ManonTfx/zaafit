@@ -1,0 +1,38 @@
+#tarteaucitronAlertBig {
+    width: 100% !important;
+    left: 50% !important;
+    top: 94% !important;
+    padding: 5px !important;
+    padding-bottom: 50px !important;
+    border-radius: 0px !important;
+    background-color: #F5F6FA !important;
+
+
+}
+
+#tarteaucitronAlertBig:before {
+    content: none !important;
+}
+
+#tarteaucitronDisclaimerAlert {
+    color: black !important;
+    font-size: 15px !important;
+    font-weight: 200 !important;
+    margin-bottom: 11px !important;
+}
+
+.tarteaucitronDeny {
+    background-color: #e7b717 !important;
+}
+
+.tarteaucitronAllow {
+    background-color: #0054FE !important;
+}
+
+#tarteaucitronRoot.tarteaucitronBeforeVisible:before {
+    display: none !important;
+}
+
+#tarteaucitronManager {
+    display: none !important;
+}
