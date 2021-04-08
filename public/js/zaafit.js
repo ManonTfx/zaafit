@@ -3,7 +3,7 @@
 const menuBurgerBtn = document.querySelector('.menuburgerbtn');
 const menuCache = document.querySelector('.navmenuburgerfoodandsport');
 const masqueMenu = document.querySelector('.masquemenu');
-const afficheMenu = document.querySelector('.displayMenu');
+const displayMenu = document.querySelector('.displayMenu');
 const containerHomeUser = document.querySelector('.containerFoodAndSportUser');
 
 function addOrRemoveClass(element, classElement) {
