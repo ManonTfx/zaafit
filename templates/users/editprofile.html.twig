@@ -6,23 +6,23 @@
 
 
 <div class="bg-light formprofilupdate container">
-<div class="modifprofilpicture">
-    <img class="profilpictureform" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil">
-</div>
-    {{ form_start(form) }}
-      <div>Nom : </div>
-            {{ form_row(form.nom) }}
-            <div>Prénom : </div>
-            {{ form_row(form.prenom) }}
-            <br>
-            <div class="mb-3">
-            <div>Photo de profil: <img class="profilpicture" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil"></div>
-            {{ form_row(form.imageFile) }}
-            </div>
-            <div>Objectif : </div>
-            {{ form_row(form.objectif_poids) }}
-            <button type="submit" class="btn btn-login mb-2 mt-1">Confirmer les modications</button>
-    {{ form_end(form) }}
+    <div class="modifprofilpicture">
+        <img class="profilpictureform" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil">
+    </div>
+        {{ form_start(form) }}
+        <div>Nom : </div>
+                {{ form_row(form.nom) }}
+                <div>Prénom : </div>
+                {{ form_row(form.prenom) }}
+                <br>
+                <div class="mb-3">
+                <div>Photo de profil: <img class="profilpicture" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil"></div>
+                {{ form_row(form.imageFile) }}
+                </div>
+                <div>Objectif : </div>
+                {{ form_row(form.objectif_poids) }}
+                <button type="submit" class="btn btn-login mb-2 mt-1">Confirmer les modications</button>
+        {{ form_end(form) }}
 </div>
 
 {% endblock %}

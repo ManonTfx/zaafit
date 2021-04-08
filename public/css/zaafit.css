@@ -76,6 +76,10 @@ body {
     height: 100%;
 }
 
+button {
+    border: none !important;
+}
+
 canvas {
     height: 80px !important;
     width: 100px !important;
@@ -448,6 +452,7 @@ label {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 170px;
 
 }
 
@@ -470,6 +475,7 @@ label {
     justify-content: center;
     min-height: 100%;
     padding: 20px;
+    margin-bottom: 70px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
     padding: 30px;
@@ -681,6 +687,11 @@ textarea {
 
 }
 
+.margin-poids {
+    height: 320px;
+    width: 100px;
+}
+
 @media(max-width: 780px) {
     footer {
         text-align: center;
@@ -696,11 +707,9 @@ textarea {
 
     }
 
-
     main {
         height: auto;
     }
-
 
     .btnheaderhometabandtel {
         display: block;
@@ -732,6 +741,7 @@ textarea {
         width: 82%;
         top: 18%;
         display: block;
+        left: 40px;
     }
 
 
@@ -792,8 +802,11 @@ textarea {
         font-size: 10px;
     }
 
-    .grid-container-blog-accueil,
-    .homestatsupleft {
+    .homestatsupright {
+        display: none;
+    }
+
+    .grid-container-blog-accueil {
         display: none;
     }
 
