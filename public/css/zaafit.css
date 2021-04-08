@@ -701,7 +701,7 @@ textarea {
         left: 0px;
         right: 0px;
         margin-bottom: 0px;
-        padding-bottom: 50px;
+        padding-bottom: 70px;
     }
 
 
@@ -740,14 +740,14 @@ textarea {
 
     .yoga {
         height: 18em;
-        width: 95%;
+        width: 82%;
         top: 18%;
         display: block;
     }
 
 
     .dropdown-menu.show {
-        left: -72px !important;
+        left: -20px !important;
         top: 7px !important;
     }
 
@@ -756,16 +756,21 @@ textarea {
     }
 
     .titrehome {
-        font-size: 59px;
+
         margin-bottom: 50px;
+        font-size: 58px;
+        margin-bottom: 50px;
+        display: block;
+        width: 49%
     }
 
     .btn-home {
         display: flex;
+        margin: 11px;
     }
 
     .homeblock {
-        width: 80%;
+        width: 100%;
         top: 20px;
         left: 20px;
     }
