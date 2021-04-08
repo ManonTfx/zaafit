@@ -1,11 +1,22 @@
 {# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block page_title 'Welcome to EasyAdmin 3' %}
+{% block page_title 'Gestion Back-Office de Zaafit' %}
 
 {% block page_content %}
     <style>
         p { max-width: 600px; }
     </style>
+<div class="container">
+<div class="row">
+<div class="col-6 alert-info p-5">
+<span>{{countAllUser['value']}} Utilisateurs</span>
+</div>
+<div class="col-6 alert-success p-5">
+<span>{{countAllArticles['value']}} Articles</span>
 
+</div>
+
+</div>
+</div>
 {% endblock %}

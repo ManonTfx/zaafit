@@ -23,6 +23,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
+     * @return int|mixed|string
+     */
+    public function countAllUsers()
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
+    /**
      * Used to upgrade (rehash) the user's password automatically over time.
      */
     public function upgradePassword(UserInterface $user, string $newEncodedPassword): void
