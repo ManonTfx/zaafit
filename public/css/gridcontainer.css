@@ -58,10 +58,6 @@
 
 
 /* GRID CONTAINER ACCUEIL BLOG */
-.container-accueil-blog-tabandtel {
-    display: none;
-}
-
 .grid-container-blog-accueil {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -84,20 +80,28 @@
 .dietetiqueblog {
     grid-area: dietetiqueblog;
     margin-left: 30px;
+    margin-right: 30px;
 }
 
 .cardioblog {
     grid-area: cardioblog;
     margin-left: 30px;
+    margin-right: 30px;
+
 }
 
 .muscublog {
     grid-area: muscublog;
     margin-left: 30px;
+    margin-right: 30px;
+
 }
 
 .santeblog {
     grid-area: santeblog;
+    margin-right: 30px;
+    margin-left: 30px;
+
 }
 
 /* GRID DASHBOARD REPAS ET SPORT*/
@@ -168,4 +172,40 @@
     .homestatsbottom {
         grid-area: homestatsbottom;
     }
+
+    /* blog */
+    .grid-container-blog-accueil {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.2fr 1.2fr 1.3fr 1.3fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "secondheaderblog secondheaderblog secondheaderblog secondheaderblog"
+            "dietetiqueblog dietetiqueblog dietetiqueblog dietetiqueblog"
+            "cardioblog cardioblog cardioblog cardioblog"
+            "muscublog muscublog muscublog muscublog"
+            "santeblog santeblog santeblog santeblog";
+    }
+
+    .secondheaderblog {
+        grid-area: secondheaderblog;
+    }
+
+    .dietetiqueblog {
+        grid-area: dietetiqueblog;
+    }
+
+    .cardioblog {
+        grid-area: cardioblog;
+
+    }
+
+    .muscublog {
+        grid-area: muscublog;
+    }
+
+    .santeblog {
+        grid-area: santeblog;
+    }
+
 }
