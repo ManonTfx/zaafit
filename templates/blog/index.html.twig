@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Blog Accueil {% endblock %}
+{% block title %} Blog zaafit|liste des articles {% endblock %}
 
 {% block content %}
 
-
+<h1 class="text-center h2 text-secondary">ZaaFit, votre coach bien-être</h1>
 <div class="grid-container-blog-accueil align-items-center ">
     <nav class="secondheaderblog navbar-fixed-top">
         <ul class= "d-flex justify-content-center pt-1">
@@ -18,8 +18,8 @@
             </li>
         </ul>
     </nav>
-
     <div class="dietetiqueblog">
+    
         <h2 class="" >Dietetique</h2>
         {% for article in categoriediet.articles|slice(0, 1) %}
         <div class="big-article-blog">
