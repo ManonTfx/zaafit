@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class UsersController extends AbstractController
 {
     /**
-     * @Route("/users", name="users")
+     * @Route("/zaafit/tableaudebord", name="users")
      */
 
     // private function handleFormatedDate(formatedDate)
