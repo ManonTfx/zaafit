@@ -14,12 +14,12 @@
             <div class="d-flex align-items-center">
                 {% if app.request.get('_route') == 'users' %}
                 <a href="{{ path('users') }}" class="nav-link">
-                        <img class="icons"src="{{ asset('img/iconhomeblue.svg') }}" alt="">
+                        <img class="icons"src="{{ asset('img/iconhomeblue.svg') }}" alt="icon-home">
                 <span class="icon-text-menu"> Home</span>
                 </a>
                 {% else %}
                 <a class="nav-link" href="{{ path('users')}}">
-                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="">
+                    <img class="icons"src="{{ asset('img/iconhome.svg') }}" alt="icon-home">
                 <span class="icon-text-menu"> Home</span>
                 </a>
                 {% endif %}
@@ -28,12 +28,12 @@
             <div class="d-flex align-items-center">
                 {% if app.request.get('_route') == 'food_user' %}
                 <a class="nav-link" href="{{ path('food_user')}}">
-                    <img class="icons"src="{{ asset('img/iconrepasblue.svg') }}" alt="">
+                    <img class="icons"src="{{ asset('img/iconrepasblue.svg') }}" alt="icon-repas">
                 <span class="icon-text-menu"> Repas</span>
                 </a>
                 {% else %}
                 <a class="nav-link" href="{{ path('food_user')}}">
-                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="">
+                    <img class="icons"src="{{ asset('img/iconrepas.svg') }}" alt="icon-repas">
                 <span class="icon-text-menu"> Repas</span>
                 </a>
                 {% endif %}
@@ -43,12 +43,12 @@
             <div class="d-flex align-items-center">
                 {% if app.request.get('_route') == 'sport' %}
                 <a class="nav-link" href="{{ path('sport')}}">
-                    <img class="icons"src="{{ asset('img/iconactivitesblue.svg') }}" alt="">
+                    <img class="icons"src="{{ asset('img/iconactivitesblue.svg') }}" alt="icon-sport">
                 <span class="icon-text-menu"> Exercices</span>
                 </a>
                 {% else %}
                 <a class="nav-link" href="{{ path('sport')}}">
-                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="">
+                    <img class="icons"src="{{ asset('img/iconactivites.svg') }}" alt="icon-sport">
                 <span class="icon-text-menu"> Exercices</span>
                 </a>
                 {% endif %}
@@ -56,7 +56,7 @@
 
             <div class="d-flex align-items-center">
                 <a class="nav-link" href="{{ path('blog')}}">
-                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="">
+                    <img class="icons"src="{{ asset('img/blogzaafiticon.svg') }}" alt="icon-blog">
                  <span class="icon-text-menu"> Blog</span>
                 </a>
             </div>
@@ -64,15 +64,15 @@
     </nav>
 
     <div class=" formfoodandsport mt-3">
-    <h2 class="text-center">Ajoutez un nouveau poids !</h2>
-   {{ form_start(form)}}
-    <p>Votre poids</p>
-    {{ form_row(form.user_poids) }}
-  
-    <p>Selectionnez la date</p>
-    {{ form_row(form.date_jour) }}
-    <button type="submit" class="btn-login btn mt-3">Valider</button>
-      {{ form_end(form)}}
+        <h2 class="text-center">Ajoutez un nouveau poids !</h2>
+        {{ form_start(form)}}
+        <p>Votre poids</p>
+        {{ form_row(form.user_poids) }}
+    
+        <p>Selectionnez la date</p>
+        {{ form_row(form.date_jour) }}
+        <button type="submit" class="btn-login btn mt-3">Valider</button>
+        {{ form_end(form)}}
     </div>
     <div class="margin-poids"></div>
 </div>

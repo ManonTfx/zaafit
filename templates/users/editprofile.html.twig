@@ -6,20 +6,20 @@
 
 
 <div class="bg-light formprofilupdate container">
-    <div class="modifprofilpicture">
+    <figure class="modifprofilpicture">
         <img class="profilpictureform" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil">
-    </div>
+    </figure>
         {{ form_start(form) }}
-        <div>Nom : </div>
+        <p>Nom : </p>
                 {{ form_row(form.nom) }}
-                <div>Prénom : </div>
+                <p>Prénom : </p>
                 {{ form_row(form.prenom) }}
                 <br>
-                <div class="mb-3">
-                <div>Photo de profil: <img class="profilpicture" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil"></div>
+                <p class="mb-3">
+                <p>Photo de profil: <img class="profilpicture" src="{{ asset('images/products/' ~ app.user.photo) }}" alt="photo_de_profil"></p>
                 {{ form_row(form.imageFile) }}
-                </div>
-                <div>Objectif : </div>
+                </p>
+                <p>Objectif : </p>
                 {{ form_row(form.objectif_poids) }}
                 <button type="submit" class="btn btn-login mb-2 mt-1">Confirmer les modications</button>
         {{ form_end(form) }}
