@@ -4,10 +4,15 @@
 
 {% block content %}
 <div class="resetpasswordmail">
-    <p>
+    {# <p>
         Un email viens de vous êtes envoyer pour réinitialiser votre mot de passe {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Si vous n'avez pas reçu cet email veuillez rééssayer <a href="{{ path('app_forgot_password_request') }}">Envoyer une nouvelle fois</a>.</p>
+    </p> #}
+<p>
+        Un email avec un lien de réinitialisation viens de vous êtes envoyer pour réinitialiser votre mot de passe. Celui-ci est valable 1heure.
+</p>
+
+
+    <p>Si vous n'avez pas reçu cet email veuillez rééssayer <a href="{{ path('app_forgot_password_request') }}">Envoyer de nouveau</a>.</p>
 </div>
 
 {% endblock %}
