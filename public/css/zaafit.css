@@ -493,6 +493,10 @@ footer {
     color: black;
 }
 
+.resetpasswordmail {
+    margin-bottom: 200px;
+}
+
 @media(max-width: 780px) {
 
     footer {
