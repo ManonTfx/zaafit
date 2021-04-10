@@ -164,6 +164,11 @@ canvas {
     margin: auto;
 }
 
+.titre-ajout-homeuser {
+    font-family: 'Anton', sans-serif;
+    color: black;
+}
+
 .iconsKg {
     height: 60px;
 }

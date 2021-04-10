@@ -38,4 +38,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/tableaudebord, roles: ROLE_USER }
+        - { path: ^/zaafit/tableaudebord, roles: ROLE_USER }
