@@ -176,7 +176,7 @@
     /* blog */
     .grid-container-blog-accueil {
         display: grid;
-        grid-template-columns: 0fr 0fr 0fr 0fr;
+        grid-template-columns: 0fr 0fr 0fr 1fr;
         grid-template-rows: 0fr 0fr 0fr 0fr 0fr;
         gap: 0px 0px;
         grid-template-areas:
