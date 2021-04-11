@@ -254,8 +254,10 @@ canvas {
 
 /* BLOG */
 .titre-cat-blog {
-    background: linear-gradient(180deg, rgba(167, 216, 249, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(167, 216, 249, 1) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 70%, rgba(178, 221, 249, 1) 100%);
     width: 60%;
+    font-weight: bold;
 }
 
 .bloc-accueil-blog {
