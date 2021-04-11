@@ -253,39 +253,36 @@ canvas {
 }
 
 /* BLOG */
-.titre-cat-blog,
-.titre-cat-sante-blog {
+.titre-cat-blog {
     background: linear-gradient(180deg, rgba(167, 216, 249, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(167, 216, 249, 1) 100%);
     width: 60%;
 }
 
-.titre-cat-sante-blog {
-    width: 20% !important;
+.bloc-accueil-blog {
+    display: flex;
+    justify-content: space-around;
 }
 
-.small-article-diet-blog>a>img {
+.cards-blog {
+    width: 50%;
+    margin-bottom: 140px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.small-article {
     height: 100px;
     width: 150px;
 }
 
-.small-article-cardio-blog>a>img {
-    height: 100px;
-    width: 150px;
-}
-
-.small-article-muscu-blog>a>img {
-    height: 100px;
-    width: 150px;
-}
-
-.articlessanteblog {
-    margin-left: 5px;
-    margin-right: 5px;
+.secondheaderblog {
+    background-color: #F5F6FA;
+    margin-top: 20px;
 }
 
 .articleshowimg {
     width: 50%;
-    height: 600px;
+    max-height: 500px;
 }
 
 .show-article {
@@ -308,6 +305,15 @@ canvas {
 
 .big-article-blog {
     margin-bottom: 30px;
+}
+
+.big-article-blog>a>img {
+    width: 100%;
+    max-height: 450px;
+}
+
+main {
+    margin-bottom: 20%;
 }
 
 .img-articles-showall {
@@ -577,7 +583,7 @@ footer {
 
 
 .resetpasswordmail {
-    margin-bottom: 35%;
+    margin-bottom: 45%;
     padding: 30px
 }
 
@@ -597,9 +603,6 @@ footer {
 
     }
 
-    main {
-        height: auto;
-    }
 
     .btnheaderhometabandtel {
         display: block;
@@ -687,26 +690,28 @@ footer {
         display: none;
     }
 
-    /* BLOG */
-    .titreblog {
-        margin-bottom: 40px;
-    }
 
     .secondheaderblog>ul>li>a {
         font-size: 8px;
     }
 
     .secondheaderblog {
-        margin-left: -15px
+        margin-left: -15px;
     }
 
+    .bloc-accueil-blog {
+        display: block;
+        margin-right: 40px;
 
-    .articlessanteblog {
-        margin-bottom: 50px;
+
     }
 
-    .santeblogtel {
-        flex-direction: column;
+    main {
+        margin-bottom: 45%;
+    }
+
+    .cards-blog {
+        width: 100%;
     }
 
     .homestatsup {
@@ -728,6 +733,9 @@ footer {
         margin-right: -20px;
     }
 
+    .accueil-blog-main {
+        margin-bottom: 200%;
+    }
 }
 
 
@@ -772,6 +780,10 @@ footer {
     .textStats {
         font-size: 15px;
         padding-left: 10px
+    }
+
+    .heure {
+        font-size: 20px;
     }
 
     .chartHomeStatsBurger {
