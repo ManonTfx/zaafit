@@ -10,7 +10,21 @@
 
 
 <h1 class="text-center titreblog h2"> Tous les articles de la catégorie {{categorie.nom}} </h1>
-
+    <nav class="secondheaderblog navbar-fixed-top">
+        <ul class= "d-flex justify-content-center pt-1">
+            <li>
+                <a class="nav-item nav-link" href="{{ path('blog') }}">ACCUEIL</a>
+            </li>
+        {% for categorie in allcategories %}
+            <li>
+                <a class="nav-item nav-link" href="{{ path('app_blog_categorie', {'id': categorie.id} ) }}">{{ categorie.nom }}</a>
+            </li>
+            {% endfor %}
+            <li>
+                <a class="nav-item nav-link" href="{{ path('app_blog_article_showAll') }}">TOUS LES ARTICLES</a>
+            </li>
+        </ul>
+    </nav>
 
 <table class="table thead-dark">
         <thead class="thead-dark">
@@ -30,14 +44,20 @@
 
             <tr>
                 <td>
-                        {{ article.titre }}
+                    <a href="{{ path('app_blog_article', {'id': article.id}) }}" class="link-all-articles">
+                            {{ article.titre }}
+                    </a>
                 </td>
                 <td>
-                   {% autoescape false %} {{ article.contenu|u.truncate(200, '...') }} {% endautoescape %}
+                    <a href="{{ path('app_blog_article', {'id': article.id}) }}" class="link-all-articles">
+                    {% autoescape false %} {{ article.contenu|u.truncate(200, '...') }} {% endautoescape %}
+                    </a>
                 </td>
                 <td>
                 <figure>
-                    <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img"class="img-articles-showall figure-img img-fluid rounded">
+                    <a href="{{ path('app_blog_article', {'id': article.id}) }}" class="link-all-articles">
+                        <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img"class="img-articles-showall figure-img img-fluid rounded">
+                    </a>
                 </figure>
                 </td>
                 <td>

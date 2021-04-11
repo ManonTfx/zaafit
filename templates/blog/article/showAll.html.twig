@@ -8,6 +8,21 @@
     {% endif %}
 
 <h1 class="titreblog text-center h2">Tous nos articles</h1>
+ <nav class="secondheaderblog navbar-fixed-top">
+        <ul class= "d-flex justify-content-center pt-1">
+            <li>
+                <a class="nav-item nav-link" href="{{ path('blog') }}">ACCUEIL</a>
+            </li>
+        {% for categorie in allcategories %}
+            <li>
+                <a class="nav-item nav-link" href="{{ path('app_blog_categorie', {'id': categorie.id} ) }}">{{ categorie.nom }}</a>
+            </li>
+            {% endfor %}
+            <li>
+                <a class="nav-item nav-link" href="{{ path('app_blog_article_showAll') }}">TOUS LES ARTICLES</a>
+            </li>
+        </ul>
+    </nav>
     <table class="table">
         <thead>
             <tr>

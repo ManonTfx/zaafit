@@ -6,7 +6,11 @@
 <div class="accueil-blog-main">
     <h1 class="text-center h2 titreblog">ZaaFit, votre coach bien-être</h1>
     <nav class="secondheaderblog navbar-fixed-top">
+
         <ul class= "d-flex justify-content-center pt-1">
+            <li>
+                <a class="nav-item nav-link" href="{{ path('blog') }}">ACCUEIL</a>
+            </li>
         {% for categorie in allcategories %}
             <li>
                 <a class="nav-item nav-link" href="{{ path('app_blog_categorie', {'id': categorie.id} ) }}">{{ categorie.nom }}</a>
