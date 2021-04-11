@@ -544,6 +544,7 @@ textarea {
 
 .surligne {
     background: linear-gradient(180deg, rgba(167, 216, 249, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(167, 216, 249, 1) 100%);
+    font-style: normal;
 }
 
 .p_home {
@@ -562,6 +563,7 @@ textarea {
 
 .titrehome {
     font-size: 70px;
+    font-family: 'Anton', sans-serif;
 }
 
 .titreblog {
