@@ -261,6 +261,7 @@ canvas {
 .bloc-accueil-blog {
     display: flex;
     justify-content: space-around;
+    margin-bottom: -50px;
 }
 
 .cards-blog {
@@ -271,8 +272,12 @@ canvas {
 }
 
 .small-article {
-    height: 100px;
-    width: 150px;
+    width: 50%;
+}
+
+.small-article>a>img {
+    height: 150px;
+    width: 250px;
 }
 
 .secondheaderblog {
@@ -800,5 +805,9 @@ footer {
 
     .homestats {
         padding: 10px;
+    }
+
+    .cards-blog {
+        margin-bottom: 95%;
     }
 }
