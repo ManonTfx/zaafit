@@ -126,7 +126,6 @@ class UsersController extends AbstractController
         // Affiche la date et l'heure du jour sur le dashboard
         $dateJour = date('l j F Y, H:i');
         $heure = strftime('%H:%M:%S');
-        // $user = $this->getDoctrine()->getRepository(User::class)->find($id);
 
         return $this->render('users/homeusers.html.twig', [
             'controller_name' => 'UsersController',

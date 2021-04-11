@@ -12,10 +12,6 @@ button:focus {
     outline: none;
 }
 
-.sf-toolbarreset {
-    display: none !important;
-}
-
 p {
     margin: 0;
     padding: 0;
@@ -69,6 +65,72 @@ label,
 
 .blockmentionslegales {
     margin-left: 30px;
+}
+
+/* PERSONNALISATION DES COOKIES */
+
+.tarteaucitronAlertBigTop {
+    box-shadow: none !important;
+    height: 30% !important;
+}
+
+#tarteaucitron,
+#tarteaucitronServices,
+.tarteaucitronMainLine,
+.tarteaucitronBorder {
+    background-color: #F5F6FA !important;
+    border: none !important;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronTitle button {
+    background-color: #F5F6FA !important;
+    color: #212529 !important;
+}
+
+.tarteaucitronTitle {
+    background-color: #F5F6FA !important;
+}
+
+#tarteaucitron #tarteaucitronClosePanel {
+    color: black !important;
+}
+
+#tarteaucitronInfo {
+    color: #3e4144 !important
+}
+
+.tarteaucitronDeny {
+    visibility: visible !important;
+}
+
+.tarteaucitronH1 {
+    color: black !important;
+}
+
+#tarteaucitron #tarteaucitronServices .tarteaucitronLine {
+    background-color: #FFF !important;
+}
+
+#tarteaucitronClosePanel,
+#tarteaucitronInfo {
+    background-color: #F5F6FA !important;
+}
+
+.tarteaucitronLine .tarteaucitronAllow,
+.tarteaucitronLine .tarteaucitronDeny,
+.tarteaucitronCTAButton,
+#tarteaucitronCloseAlert {
+    opacity: 1 !important;
+    padding: 7px !important;
+    border-radius: 10px !important;
+}
+
+.tarteaucitronCheck,
+.tarteaucitronCross,
+.sf-toolbarreset,
+.sf-toolbar-clearer,
+.tarteaucitronSelfLink {
+    display: none !important;
 }
 
 /* HEADER DASHBOARD USERS*/
@@ -186,7 +248,21 @@ canvas {
     margin-left: -10%;
 }
 
+.heure {
+    font-size: 30px;
+}
+
 /* BLOG */
+.titre-cat-blog,
+.titre-cat-sante-blog {
+    background: linear-gradient(180deg, rgba(167, 216, 249, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 41%, rgba(167, 216, 249, 1) 100%);
+    width: 60%;
+}
+
+.titre-cat-sante-blog {
+    width: 20% !important;
+}
+
 .small-article-diet-blog>a>img {
     height: 100px;
     width: 150px;
@@ -203,12 +279,8 @@ canvas {
 }
 
 .articlessanteblog {
-    height: 300px;
-    width: 400px;
-}
-
-.santeblog>h2 {
-    margin-left: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .articleshowimg {
@@ -697,13 +769,9 @@ footer {
         margin-left: 20px;
     }
 
-    .imcdiv {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
     .textStats {
         font-size: 15px;
+        padding-left: 10px
     }
 
     .chartHomeStatsBurger {

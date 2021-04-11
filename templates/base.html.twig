@@ -109,12 +109,6 @@
         {% block content %}
         {% endblock %}
 
-
-        <script type="text/javascript">
-            tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
-            tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
-            (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
-        </script>
     </main>
         <footer>
         <div> © 2020 Copyright:
@@ -128,6 +122,11 @@
 
             </div>
         </footer>
+         <script type="text/javascript">
+            tarteaucitron.user.gajsUa = 'UA-XXXXXXXX-X';
+            tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
+            (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+        </script>
         {% block javascripts %}
             <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

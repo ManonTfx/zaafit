@@ -7,21 +7,20 @@
 {% endblock %}
 
 {% block content %}
-<h2> {{categorie.nom}}</h2>
 
-<hr>
 
-<h3> Tous les articles de la catégorie </h3>
+<h1 class="text-center titreblog h2"> Tous les articles de la catégorie {{categorie.nom}} </h1>
+
 
 <table class="table thead-dark">
         <thead class="thead-dark">
             <tr>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Publié le</th>
-                <th>Image</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 {% if is_granted('ROLE_ADMIN') %}
-                <th>Action</th>
+                <th></th>
                 {% endif %}
             </tr>
         </thead>
