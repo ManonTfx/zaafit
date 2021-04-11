@@ -7,35 +7,39 @@
     <p><a href="{{ path('app_blog_article_create')}} ">Créer un article</a></p>
     {% endif %}
 
-<h1 class="titreblog text-center h2">Tout nos articles</h1>
-    <table class="table thead-dark">
-        <thead class="thead-dark">
+<h1 class="titreblog text-center h2">Tous nos articles</h1>
+    <table class="table">
+        <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         
         <tbody>
         {% for article in allArticles %}
             <tr>
-                <td>
-                    <a href=" {{ path('app_blog_article', {'id': article.id}) }} ">
+                <th scope="row">
+                    <a href="{{ path('app_blog_article', {'id': article.id}) }}" class="link-all-articles">
                         {{ article.titre }}
                     </a>
-                </td>
+                </th>
                 <td>
+                <a href="{{ path('app_blog_article', {'id': article.id}) }}" class="link-all-articles">
                    {% autoescape false %} {{ article.contenu|u.truncate(200, '...')}} {% endautoescape %}
+                </a>
                 </td>
                 <td>
+                    <p>Publié le:</p>
                     {{ article.dateCreation | date('d/m/Y')}}
                 </td>
                 <td>
                 <figure>
-                    <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img"class="figure-img img-fluid rounded img-articles-showall">
+                    <a href="{{ path('app_blog_article', {'id': article.id}) }}" class="link-all-articles">
+                        <img src=" {{ asset('images/imgarticle/' ~ article.image) }}" alt="article-img"class="figure-img img-fluid rounded img-articles-showall">
+                    </a>
                 </figure>
                 </td>
                     {% if is_granted('ROLE_ADMIN') %}

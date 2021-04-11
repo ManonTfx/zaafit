@@ -273,6 +273,10 @@ canvas {
     margin-left: 20px;
 }
 
+.link-all-articles {
+    color: black !important;
+}
+
 .small-article {
     width: 50%;
 }
