@@ -266,7 +266,7 @@ canvas {
 
 .cards-blog {
     width: 50%;
-    margin-bottom: 40%;
+    margin-bottom: 20%;
     margin-right: 20px;
     margin-left: 20px;
 }
@@ -808,6 +808,6 @@ footer {
     }
 
     .cards-blog {
-        margin-bottom: 95%;
+        margin-bottom: 30%;
     }
 }
