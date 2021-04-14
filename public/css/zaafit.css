@@ -67,6 +67,66 @@ label,
     margin-left: 30px;
 }
 
+/* PAGE ERREUR */
+
+.btn-contact {
+    background-color: transparent;
+    color: #0054FE;
+    border: 1px solid #0054FE !important;
+    border-radius: 13px;
+    padding: 5px 20px;
+    margin-right: 20px;
+    transition: 1s;
+}
+
+.btn-contact>a:hover {
+    color: white !important;
+}
+
+.btn-contact:hover {
+    background-color: #0054FE !important;
+}
+
+.btn-back-home {
+    background-color: #0054FE;
+    padding: 5px 20px;
+    border-radius: 13px;
+    transition: 1s;
+}
+
+.btn-back-home:hover {
+    background-color: transparent;
+    border: 1px solid #0054FE !important;
+}
+
+.btn-back-home>a {
+    color: #FFF !important;
+}
+
+.btn-back-home>a:hover {
+    color: #0054FE !important;
+}
+
+.container-404>h1 {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    font-size: 50px
+}
+
+.desole-404 {
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+.container-404 {
+    margin: auto;
+}
+
+.img-404>img {
+    width: 40%;
+    height: 20%;
+}
+
 /* PERSONNALISATION DES COOKIES */
 
 .tarteaucitronAlertBigTop {
@@ -381,6 +441,7 @@ textarea {
     color: white;
     width: 100%;
     border-radius: 10px;
+    transition: 1s;
 }
 
 .btn-login:hover {
@@ -480,6 +541,7 @@ textarea {
     background-color: #0054FE;
     padding: 5px 20px;
     border-radius: 13px;
+    transition: 1s;
 }
 
 .buttonlogin:hover {
@@ -502,6 +564,7 @@ textarea {
     border-radius: 13px;
     padding: 5px 20px;
     margin-right: 20px;
+    transition: 1s;
 }
 
 .buttonregister>a:hover {

@@ -1,7 +1,21 @@
 
 {% extends 'base.html.twig' %}
 
+{% block title %} Page non trouvée {% endblock %}
+
 {% block content %}
-    <h1>Page non trouvée</h1>
-    <p>La page que vous cherchez n'a pas été trouvée.</p>
+<div class="container-404 mx-auto text-center">
+    <h1 class="mb-2" >Oops!</h1>
+    <figure class="img-404 mb-2">
+        <img class="img-fluide" src="{{ asset('img/404error.svg') }}" alt="erreur-404">
+    </figure>
+    <p class="desole-404">Désolé, une erreur a été détéctée, la page que vous cherchez n'existe pas!</p>
+        <button class="btn-back-home mr-1">
+            <a href="https://zaafit.fr/" >Retour à l'accueil</a>
+        </button>
+        <button class="btn-contact ml-1">
+            <a href="mailto:contact@zaafit.fr" >Contacter le support</a>
+        </button>
+</div>
+
 {% endblock %}
